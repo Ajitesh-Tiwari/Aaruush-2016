@@ -3,17 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
     android:id="@+id/lin_lay"
     android:weightSum="1"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".MainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content"
+        android:elevation="4dp">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_aaruush_logo"
+        android:layout_centerHorizontal="true"
         android:id="@+id/alogo"
         android:layout_marginTop="15dp"
         android:layout_gravity="center"/>
@@ -22,29 +28,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="AARUUSH"
+        android:layout_centerHorizontal="true"
         android:id="@+id/txt_name"
+        android:layout_below="@id/alogo"
         android:layout_gravity="center"
-        android:visibility="gone"
+        android:textColor="@color/white"
+        android:visibility="invisible"
         android:textSize="26sp"/>
+
+
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <TextView
+            android:padding="16dp"
             android:id="@+id/disc"
             android:text="@string/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:visibility="gone"
             android:textSize="15sp"
             />
 
         <com.github.clans.fab.FloatingActionMenu
             android:id="@+id/menu"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             fab:menu_fab_label="Share"
             fab:menu_icon="@drawable/ic_share_white_24dp"
@@ -83,12 +98,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_fb"
                 />
-
-
         </com.github.clans.fab.FloatingActionMenu>
 
-
     </RelativeLayout>
-
-
 </LinearLayout>
