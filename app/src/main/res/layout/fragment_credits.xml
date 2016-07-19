@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/img_wa_logo"
         android:layout_gravity="center_horizontal|top"
-        android:src="@drawable/wa"
+        android:src="@drawable/ic_webarch_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
