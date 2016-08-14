@@ -2,18 +2,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity"
     android:background="@android:color/white">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/img_wa_logo"
         android:layout_gravity="center_horizontal|top"
-        android:src="@drawable/wa"
+        android:src="@drawable/ic_webarch_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="130dp" />
+        android:layout_marginTop="50dp" />
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:background="#191919"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+    </LinearLayout>
+
 </RelativeLayout>
