@@ -15,6 +15,9 @@ import com.android.volley.toolbox.Volley;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class AppController extends Application {
 
     public static final String TAG = AppController.class
@@ -31,6 +34,9 @@ public class AppController extends Application {
         mInstance = this;
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+        RealmConfiguration config = new RealmConfiguration.Builder(this).build();
+        Realm.setDefaultConfiguration(config);
+
     }
 
     public static synchronized AppController getInstance() {

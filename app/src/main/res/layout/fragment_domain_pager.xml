@@ -1,14 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    tools:context="com.aaruush16.webarch.aaruush16.DomainFragment.DomainPagerFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_domain"
-        android:layout_centerInParent="true" />
-
-</RelativeLayout>
+    android:layout_height="match_parent"
+    tools:context="com.aaruush16.webarch.aaruush16.DomainFragment.DomainPagerFragment"
+    android:id="@+id/list_event"
+    />

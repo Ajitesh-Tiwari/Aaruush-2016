@@ -1,3 +1,313 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f56a68df45e18ce77814db6553fdaa229308f49b">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.2.0_11d94b44adc856dfbfec92070938547a0234eaaf\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f315c6b5b99081f16a79c9aaa557328a4644fe63">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.2.0_60130b76e421e1545af531d7a6f350c28c86d506\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c14784f8cc00479653197860f6dc30e7564b996d">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_39e9802563b5371141cb5e3210294ce933f965cd\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.volley-volley-1.0.0_75b71902a7cf43bf376401c284f60f1f4985a2f1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Rishi\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-applinks-1.4.0_9c961e4650e1670ebe5b0feb31c870cafe339945\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Rishi\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.0.0\2943c74db6d4346ab8c6531adac91fa05c137c40\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_89d95e367a23ab402776082e2eed82eb8a1a9851\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_92a9648602dcbb0c757ad50e074fe6a9750bdd95\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Rishi\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\bolts-tasks-1.4.0_cfcdb28d90f09bde26b60b194594d4fb13665277\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\libs\nineoldandroids-library-2.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\2\nineoldandroids-library-2.4.0_f1172b6dedb86fb5c4a39762ef8b44e244eb3e43\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="30489a97b06cc3945bdbcc1770089af9e3b3b64d">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.2.0_d74e51237b4c25050b989439fd7f39bd9fa41ce7\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.joanzapata.iconify\android-iconify-simplelineicons\2.2.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e4830da0150ffafca497887c24fa8769f5a8c839">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.joanzapata.iconify-android-iconify-simplelineicons-2.2.2_e90134404b2e51fa217bce0e4c8003f5a55292e3\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.github.florent37\materialviewpager\1.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e021a1a8f5600d1924bd69cd2b007c8d118d3ea7">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.florent37-materialviewpager-1.2.0_2d4ddbd3146146b169da8bb23e9b5c0f22589bd6\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.getkeepsafe.relinker\relinker\1.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="264f0bc4c0680cfe7a60fea1f12a43f1ab48e7c8">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.getkeepsafe.relinker-relinker-1.2.1_3a44faef0e26fe9d17a4080848e3b5e7a60c77dd\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fb15fd9774b5c51dcb39d8e6fa1b6f06bcd1cd34">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.2.0_6f8517cbb00d5b32aec21403f2b5ee074243c3d3\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.0.0_e44d853b20744a7c127b3875d557360965a55227\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.github.ksoichiro\android-observablescrollview\1.6.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d125b199a427e5cc8d4234f7d8673c9a27ef6336">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.ksoichiro-android-observablescrollview-1.6.0_a61b23d02fa6ae5e941dabcf8c3a67517496ab13\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4838df6db988160b107e954e02a745370df543b6">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.2.0_d1bff4f77cc84c875c6b945e07c7349adad4c824\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\customtabs\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0e5a66a941515d873a34065fe44fbba6ef422a1b">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-customtabs-23.2.1_3cd5dc73637f9eeaccee5fe35003932f09d78392\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.11.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="86da97c30f50a67ddabe2cf7040713ad17153fce">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.facebook.android-facebook-android-sdk-4.11.0_c6bf1810d0f65a7a49010729d3bdc5941d795f44\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="20ca7888c59f63d439f218a8810c88039f8bc7db">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.2.0_3ddee44a75b32df8091d6a6236be950012a71be4\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.jpardogo.materialtabstrip\library\1.1.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="611c7708cd3df0d7ae99105d4df5af8eb25c4b32">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.jpardogo.materialtabstrip-library-1.1.0_e26ed9dcb83c73f04beabb625b0c8aed30e19ef5\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_101d7b085364abe60f2048ed48829a9fee6001c4\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="dc4c18602ecffb3e69cda6cdc51ba4feac0f97d7">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.2.0_38c15ba0da9cafd108950e3f12538a09bc377986\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.firebaseui\firebase-ui-auth\0.4.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="723945b8050a3623c2682768a215c0e3d1b64ed5">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.firebaseui-firebase-ui-auth-0.4.1_3340b01cb597b822b6b9a00d7746d9ef73f2c92b\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.github.clans\fab\1.6.3\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8f65e6101c990702ad4178f592291354eb0cf2c7">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.clans-fab-1.6.3_71234a447f1ff3335c1d2c8822a03893fa66c803\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_305de2bdba33293d58dfe7a03eecb70d2e3a1292\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="031e8b3ab2df4ab43b1017f84417d7e10dfbb8d2">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.hdodenhof-circleimageview-2.0.0_63856c04ba4e63930408bab6dc844e7e15702c83\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f94ff561b9aa9fdf2837b35d80eae45e24476e5b">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_bf73561e97491cc3e87bc5a7c2a937d81521397c\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5acfd484717d9175c175569a114d46dbeec074ed">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.2.0_793f08e9c009741e64f9401cca794fbee9e20bb6\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.0.0_78de3f22c7465d748dd4af3f018fc2f8f5fe0cbd\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="363f626ad5686283250cdb6073ae1bba5cb07a87">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.2.0_0ae77df6a6f2b20d3278cf91dd05699eba56e670\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.joanzapata.iconify\android-iconify\2.2.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="970b2eadc8805e4e04a9008f97368c7b8cc78651">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.joanzapata.iconify-android-iconify-2.2.2_5c3e5de7a04adece44ea8b287b957aa348e1d0e5\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="dd7676ac12aa6653718b7ea33d93ce9d6915d526">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.2.0_97e0e52439e0083bb07d5df88d354dfd3ad10f74\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_7a0ee589004006da3b6b36a996d121775ab3853d\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_1d51418ad565071526ffcadc6c997130b33b1938\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e791f7f2fbf9ca5b3b576916533f844dfb384024">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.2.0_cb5a153abd0dfc685e1e16373a9e0d1100c3c5a3\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="593fbaec1c3e100480a2bd72457b64b7dde6ac2d">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.2.0_0b19cc5bf5f03e333307231aac7a2a4e0f46b540\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="44120508d7240c3e34a05957981a5c3c9b9f61aa">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.2.0_ceb1d708e583f2ca065d88a059692e98b1c93200\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_08fb1f78f977692513283a9d64f5e06c22c4bad1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Rishi\.gradle\caches\modules-2\files-2.1\io.realm\realm-annotations\1.1.1\8e720b6ccaa30f4201a3f347f8959f620823e848\realm-annotations-1.1.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8e720b6ccaa30f4201a3f347f8959f620823e848">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\realm-annotations-1.1.1_6d27905bc6aefb9b7cbdd227fb8655f6b9d689d9\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\io.realm\realm-android-library\1.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c82387ef0b47739dc3fe7a92d910ad3f0e7cdf01">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\io.realm-realm-android-library-1.1.1_eedcfd0c195298c8e3d60be2c7cb65987ffc2887\classes.dex" />
+    </item>
+    <item
+        jar="G:\webarch\Aaruush-2016\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="82ce13fd19cdfde0e392f03c27edeba8d4333648">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.3.0_2e42c467cbc19a045a8b2d12faf7c183cbdf2dea\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Rishi\.gradle\caches\modules-2\files-2.1\com.flaviofaria\kenburnsview\1.0.7\ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1\kenburnsview-1.0.7.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\kenburnsview-1.0.7_f50adf47334ce1604e049587ce4a624cf943a5f9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Rishi\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="G:\webarch\Aaruush-2016\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_348ba7c42ca01fcb5df5611782f63b6b210ca128\classes.dex" />
+    </item>
+
+</items>

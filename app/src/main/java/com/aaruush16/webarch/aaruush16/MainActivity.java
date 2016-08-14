@@ -10,17 +10,21 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.aaruush16.webarch.aaruush16.CreditsFragment.CreditsFragment;
+import com.aaruush16.webarch.aaruush16.DataSync.DataFetcher;
 import com.aaruush16.webarch.aaruush16.DomainFragment.DomainFragment;
 import com.aaruush16.webarch.aaruush16.FavouritesFragment.FavouritesFragment;
 import com.aaruush16.webarch.aaruush16.Firebase.LoginActivity;
 import com.aaruush16.webarch.aaruush16.HighlightsFragment.HighlightsFragment;
 import com.aaruush16.webarch.aaruush16.HomeFragment.HomeFragment;
 import com.aaruush16.webarch.aaruush16.PatronsFragment.PatronsFragment;
+import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
 import com.aaruush16.webarch.aaruush16.ResideMenu.ResideMenu;
 import com.aaruush16.webarch.aaruush16.ResideMenu.ResideMenuItem;
 import com.aaruush16.webarch.aaruush16.TeamsFragment.TeamsFragment;
@@ -33,6 +37,13 @@ import com.google.firebase.auth.FirebaseUser;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
 
+import java.util.Iterator;
+
+import io.realm.Realm;
+import io.realm.RealmChangeListener;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     FirebaseUser firebaseUser;
@@ -40,8 +51,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ResideMenu resideMenu;
     Toolbar toolbar;
     FrameLayout frameLayout;
+    Realm realm;
 
     int id=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +70,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             });
         }
+
+        DataFetcher dataFetcher=new DataFetcher();
+        dataFetcher.FetchJSON(this);
+
+        realm=Realm.getDefaultInstance();
+        RealmQuery<Event> query=realm.where(Event.class);
+        RealmResults<Event> results=query.findAll();
+        Iterator<Event> eventIterator=results.iterator();
+        while (eventIterator.hasNext()){
+            Event event=eventIterator.next();
+            Log.w("RealmOriginal: ",event.getName());
+            Toast.makeText(context, "RealmOriginal: "+event.getName(), Toast.LENGTH_SHORT).show();
+        }
+
+        results.addChangeListener(new RealmChangeListener<RealmResults<Event>>() {
+            @Override
+            public void onChange(RealmResults<Event> element) {
+                Iterator<Event> eventIterator=element.iterator();
+                while (eventIterator.hasNext()){
+                    Event event=eventIterator.next();
+                    Log.w("RealmChange: ",event.getName());
+                    Toast.makeText(context, "RealmChange: "+event.getName(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
 
         frameLayout= (FrameLayout) findViewById(R.id.frameLayout);
 
@@ -174,5 +215,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .replace(layout, targetFragment, "fragment")
                 .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        realm.removeAllChangeListeners();
+        realm.close();
     }
 }
