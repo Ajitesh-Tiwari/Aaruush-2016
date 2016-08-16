@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.graphics.Rect;
+import android.os.Build;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -129,6 +133,42 @@ public class ResideMenu extends FrameLayout {
         menuHolder.addView(scrollViewRightMenu);
     }
 
+
+    /**
+     * get application usable screen size.
+     * @param context current size
+     * @return new Point(width, height)
+     */
+    public static Point getAppUsableScreenSize(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size;
+    }
+
+    /**
+     * get actual/real screen size, this is the full screen size.
+     * @param context current context
+     * @return new Point(width, height)
+     */
+    public static Point getRealScreenSize(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = windowManager.getDefaultDisplay();
+        Point size = new Point();
+
+        if (Build.VERSION.SDK_INT >= 17) {
+            display.getRealSize(size);
+        } else if (Build.VERSION.SDK_INT >= 14) {
+            try {
+                size.x = (Integer) Display.class.getMethod("getRawWidth").invoke(display);
+                size.y = (Integer) Display.class.getMethod("getRawHeight").invoke(display);
+            } catch (Exception e) {
+                size = new Point(0, 0);
+            }
+        }
+        return size;
+    }
     /**
      * Returns left menu view so you can findViews and do whatever you want with
      */
@@ -139,6 +179,50 @@ public class ResideMenu extends FrameLayout {
     /**
      * Returns right menu view so you can findViews and do whatever you want with
      */
+
+    public static Point getNavigationBarSize(Context context) {
+        Point appUsableSize = getAppUsableScreenSize(context);
+        Point realScreenSize = getRealScreenSize(context);
+
+        // navigation bar on the right
+        if (appUsableSize.x < realScreenSize.x) {
+            return new Point(realScreenSize.x - appUsableSize.x, appUsableSize.y);
+        }
+
+        // navigation bar at the bottom
+        if (appUsableSize.y < realScreenSize.y) {
+            return new Point(appUsableSize.x, realScreenSize.y - appUsableSize.y);
+        }
+
+        // navigation bar is not present
+        return new Point();
+    }
+
+    @Override
+    protected boolean fitSystemWindows(Rect insets) {
+        // Applies the content insets to the view's padding, consuming that content (modifying the insets to be 0),
+        // and returning true. This behavior is off by default and can be enabled through setFitsSystemWindows(boolean)
+        // in api14+ devices.
+
+        int bottomPadding = insets.bottom;
+
+        Point p = getNavigationBarSize(getContext());
+
+        if (Build.VERSION.SDK_INT >= 21 && p.x != 0) {
+//            System.out.println("ON AJOUTE LA TAILLE DE LA NAV BARRE POUR DECALER");
+            Resources resources = getContext().getResources();
+            int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                bottomPadding += resources.getDimensionPixelSize(resourceId);
+            }
+        }
+
+        this.setPadding(viewActivity.getPaddingLeft() + insets.left, viewActivity.getPaddingTop() + insets.top,
+                viewActivity.getPaddingRight() + insets.right, viewActivity.getPaddingBottom() + bottomPadding);
+        insets.left = insets.top = insets.right = insets.bottom = 0;
+        return true;
+    }
+
     public View getRightMenuView() {
         return scrollViewRightMenu;
     }
