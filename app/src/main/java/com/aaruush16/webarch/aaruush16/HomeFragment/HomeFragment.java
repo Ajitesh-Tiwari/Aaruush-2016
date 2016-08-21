@@ -2,42 +2,29 @@ package com.aaruush16.webarch.aaruush16.HomeFragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.graphics.PixelFormat;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
 
 import com.aaruush16.webarch.aaruush16.R;
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Ravi/28/06/2016
  */
 public class HomeFragment extends Fragment {
 
-    public Context c;
+    public Context context;
     private View rootView;
-    Animation fadeIn;
+    FirebaseUser firebaseUser;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -49,33 +36,13 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView =  inflater.inflate(R.layout.fragment_home, container, false);
-        c=getActivity();
-        StartAnimations();
+        CircularImageView circleImageView= (CircularImageView) rootView.findViewById(R.id.profileImage);
+        context=getActivity();
+        firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
+        if(firebaseUser.getPhotoUrl()!=null)
+            Glide.with(this).load(firebaseUser.getPhotoUrl()).into(circleImageView);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Home");
 
-
-        com.github.clans.fab.FloatingActionButton fb = (com.github.clans.fab.FloatingActionButton) rootView.findViewById(R.id.fb);
-        fb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(getOpenFacebookIntent(getActivity()));
-            }
-        });
-
-        com.github.clans.fab.FloatingActionButton tr = (com.github.clans.fab.FloatingActionButton) rootView.findViewById(R.id.tw);
-        tr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(getOpentwitterIntent(getActivity()));
-            }
-        });
-
-        com.github.clans.fab.FloatingActionButton wa = (com.github.clans.fab.FloatingActionButton) rootView.findViewById(R.id.wa);
-        wa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(launchWhatsApp(getActivity()));
-            }
-        });
         return rootView;
     }
 
@@ -108,7 +75,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    //TODO: Replace with Aarush-16's play store link
     public static Intent launchWhatsApp(Context context)
     {
 
@@ -125,43 +91,43 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void StartAnimations() {
-        Animation anim = AnimationUtils.loadAnimation(c, R.anim.alpha);
-        anim.reset();
-        final TextView txt = (TextView)rootView.findViewById(R.id.txt_name);
-        final TextView t = (TextView)rootView.findViewById(R.id.disc);
-        t.setVisibility(View.GONE);
-        anim.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                Typeface custom_font = Typeface.createFromAsset(c.getAssets(),  "fonts/xirod.ttf");  // adding custom font(xirod)
-                txt.setVisibility(View.VISIBLE);
-                txt.setTypeface(custom_font);
-                fadeIn = new AlphaAnimation(0.0f , 1.0f ) ;
-                fadeIn.setDuration(500);
-                fadeIn.setFillAfter(true);
-                txt.startAnimation(fadeIn);
-                t.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        LinearLayout l = (LinearLayout) rootView.findViewById(R.id.lin_lay);
-        l.clearAnimation();
-        l.startAnimation(anim);
-        anim = AnimationUtils.loadAnimation(c, R.anim.translate);
-        anim.reset();
-        ImageView iv = (ImageView) rootView.findViewById(R.id.alogo);
-        iv.clearAnimation();
-        iv.startAnimation(anim);
-
-    }
+//    private void StartAnimations() {
+//        Animation anim = AnimationUtils.loadAnimation(c, R.anim.alpha);
+//        anim.reset();
+//        final TextView txt = (TextView)rootView.findViewById(R.id.txt_name);
+//        final TextView t = (TextView)rootView.findViewById(R.id.disc);
+//        t.setVisibility(View.GONE);
+//        anim.setAnimationListener(new Animation.AnimationListener() {
+//            @Override
+//            public void onAnimationStart(Animation animation) {
+//
+//            }
+//
+//            @Override
+//            public void onAnimationEnd(Animation animation) {
+//                Typeface custom_font = Typeface.createFromAsset(c.getAssets(),  "fonts/xirod.ttf");  // adding custom font(xirod)
+//                txt.setVisibility(View.VISIBLE);
+//                txt.setTypeface(custom_font);
+//                fadeIn = new AlphaAnimation(0.0f , 1.0f ) ;
+//                fadeIn.setDuration(500);
+//                fadeIn.setFillAfter(true);
+//                txt.startAnimation(fadeIn);
+//                t.setVisibility(View.VISIBLE);
+//            }
+//
+//            @Override
+//            public void onAnimationRepeat(Animation animation) {
+//
+//            }
+//        });
+//        LinearLayout l = (LinearLayout) rootView.findViewById(R.id.lin_lay);
+//        l.clearAnimation();
+//        l.startAnimation(anim);
+//        anim = AnimationUtils.loadAnimation(c, R.anim.translate);
+//        anim.reset();
+//        ImageView iv = (ImageView) rootView.findViewById(R.id.alogo);
+//        iv.clearAnimation();
+//        iv.startAnimation(anim);
+//
+//    }
 }

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ public class DomainFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_domain, container, false);
         materialViewPager= (MaterialViewPager) view.findViewById(R.id.materialViewPager);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Domains");
         materialViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -124,54 +126,54 @@ public class DomainFragment extends Fragment {
             @Override
             public HeaderDesign getHeaderDesign(int page) {
                 int color=R.color.red;
-                Drawable drawable=getResources().getDrawable(R.drawable.logo_white);
+                Drawable drawable=getResources().getDrawable(R.drawable.logo_white,null);
                 switch (page) {
                     case 0:color=R.color.green;
-                        drawable=getResources().getDrawable(R.drawable.architecture);
+                        drawable=getResources().getDrawable(R.drawable.architecture,null);
                         break;
                     case 1:color=R.color.blue;
-                        drawable=getResources().getDrawable(R.drawable.bluebook);
+                        drawable=getResources().getDrawable(R.drawable.bluebook,null);
                         break;
                     case 2:color=R.color.cyan;
-                        drawable=getResources().getDrawable(R.drawable.digital_design);
+                        drawable=getResources().getDrawable(R.drawable.digital_design,null);
                         break;
                     case 3:color=R.color.red;
-                        drawable=getResources().getDrawable(R.drawable.electrizite);
+                        drawable=getResources().getDrawable(R.drawable.electrizite,null);
                         break;
                     case 4:color=R.color.green;
-                        drawable=getResources().getDrawable(R.drawable.fundaaz);
+                        drawable=getResources().getDrawable(R.drawable.fundaaz,null);
                         break;
                     case 5:color=R.color.blue;
-                        drawable=getResources().getDrawable(R.drawable.konstruction);
+                        drawable=getResources().getDrawable(R.drawable.konstruction,null);
                         break;
                     case 6:color=R.color.cyan;
-                        drawable=getResources().getDrawable(R.drawable.machination);
+                        drawable=getResources().getDrawable(R.drawable.machination,null);
                         break;
                     case 7:color=R.color.red;
-                        drawable=getResources().getDrawable(R.drawable.mageficie);
+                        drawable=getResources().getDrawable(R.drawable.mageficie,null);
                         break;
                     case 8:color=R.color.green;
-                        drawable=getResources().getDrawable(R.drawable.online);
+                        drawable=getResources().getDrawable(R.drawable.online,null);
                         break;
                     case 9:color=R.color.blue;
-                        drawable=getResources().getDrawable(R.drawable.presentatio);
+                        drawable=getResources().getDrawable(R.drawable.presentatio,null);
                         break;
                     case 10:color=R.color.cyan;
-                        drawable=getResources().getDrawable(R.drawable.robogyan);
+                        drawable=getResources().getDrawable(R.drawable.robogyan,null);
                         break;
                     case 11:color=R.color.red;
-                        drawable=getResources().getDrawable(R.drawable.vimanaz);
+                        drawable=getResources().getDrawable(R.drawable.vimanaz,null);
                         break;
                     case 12:color=R.color.green;
-                        drawable=getResources().getDrawable(R.drawable.xzone);
+                        drawable=getResources().getDrawable(R.drawable.xzone,null);
                         break;
                     case 13:color=R.color.blue;
-                        drawable=getResources().getDrawable(R.drawable.yudhamme);
+                        drawable=getResources().getDrawable(R.drawable.yudhamme,null);
                         break;
 
 
                 }
-                return HeaderDesign.fromColorAndDrawable(getResources().getColor(color),drawable);
+                return HeaderDesign.fromColorAndDrawable(ContextCompat.getColor(getContext(),color),drawable);
             }
         });
 

@@ -29,7 +29,7 @@ public class DataFetcher {
 
     String URL="https://spreadsheets.google.com/feeds/list/1-W0923TO_T9nlEq7_O-xXBf80TTKhyUeHKb1_0sWBUg/1/public/values?alt=json";
 
-    public void FetchJSON(final Context context){
+    public void fetchJSON(final Context context){
 
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
@@ -56,7 +56,7 @@ public class DataFetcher {
 
                     }
 
-                    SaveData(eventList,context);
+                    saveData(eventList,context);
 
 
                 } catch (JSONException e) {
@@ -75,7 +75,7 @@ public class DataFetcher {
         AppController.getInstance().addToRequestQueue(jsonObjectRequest);
     }
 
-    public void SaveData(final RealmList<Event> eventList, final Context context){
+    public void saveData(final RealmList<Event> eventList, final Context context){
         final Realm realm=Realm.getDefaultInstance();
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
@@ -91,7 +91,7 @@ public class DataFetcher {
                 while (eventIterator.hasNext()){
                     Event event=eventIterator.next();
                     Log.w("Realm",event.getName());
-                    Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, null);
