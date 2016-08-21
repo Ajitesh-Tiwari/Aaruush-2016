@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.aaruush16.webarch.aaruush16.ConnectionDetector.ConnectionDetector;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
 import com.aaruush16.webarch.aaruush16.VolleySingleton.AppController;
 import com.android.volley.Request;
@@ -28,8 +29,9 @@ import io.realm.RealmResults;
 public class DataFetcher {
 
     String URL="https://spreadsheets.google.com/feeds/list/1-W0923TO_T9nlEq7_O-xXBf80TTKhyUeHKb1_0sWBUg/1/public/values?alt=json";
+    ConnectionDetector connectionDetector;
 
-    public void FetchJSON(final Context context){
+    public void fetchJSON(final Context context){
 
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
@@ -56,7 +58,7 @@ public class DataFetcher {
 
                     }
 
-                    SaveData(eventList,context);
+                    saveData(eventList,context);
 
 
                 } catch (JSONException e) {
@@ -69,14 +71,24 @@ public class DataFetcher {
 
             }
         });
+        //Detecting internet connection
+        connectionDetector=new ConnectionDetector(context);
+        Boolean isConnected=connectionDetector.isConnectingToInternet();
+        if (isConnected){
+            Toast.makeText(context, "Updating Database", Toast.LENGTH_SHORT).show();
+            //TODO:IF request gets cancel then some safety feature needed to be included
+            AppController.getInstance().addToRequestQueue(jsonObjectRequest);
+        }else{
+            Toast.makeText(context, "No Internet Connectivity\nPlease connect to internet !!!", Toast.LENGTH_SHORT).show();
+
+        }
 
 
-        //TODO:IF request gets cancel then some safety feature needed to be included
-        AppController.getInstance().addToRequestQueue(jsonObjectRequest);
     }
 
-    public void SaveData(final RealmList<Event> eventList, final Context context){
+    public void saveData(final RealmList<Event> eventList, final Context context){
         final Realm realm=Realm.getDefaultInstance();
+        final Boolean success=true;
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -85,16 +97,23 @@ public class DataFetcher {
         }, new Realm.Transaction.OnSuccess() {
             @Override
             public void onSuccess() {
-                RealmQuery<Event> query=realm.where(Event.class);
-                RealmResults<Event> results=query.findAll();
-                Iterator<Event> eventIterator=results.iterator();
-                while (eventIterator.hasNext()){
-                    Event event=eventIterator.next();
-                    Log.w("Realm",event.getName());
-                    Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
+                RealmQuery<Event> query = realm.where(Event.class);
+                RealmResults<Event> results = query.findAll();
+                Iterator<Event> eventIterator = results.iterator();
+                while (eventIterator.hasNext()) {
+                    Event event = eventIterator.next();
+                    //Log.w("Realm",event.getName());
+                    //Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
                 }
+                Toast.makeText(context, "Database Updated!!!", Toast.LENGTH_SHORT).show();
+
             }
-        }, null);
+        }, new Realm.Transaction.OnError() {
+            @Override
+            public void onError(Throwable error) {
+                Toast.makeText(context , "Database wasn't updated!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
         realm.close();
     }
 
