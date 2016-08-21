@@ -28,5 +28,13 @@
             app:civ_border_width="4dp"/>
     </FrameLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc"
+        android:layout_margin="10dp"
+        android:text="@string/desc"
+        android:textColor="#000000"
+        />
 
 </LinearLayout>
