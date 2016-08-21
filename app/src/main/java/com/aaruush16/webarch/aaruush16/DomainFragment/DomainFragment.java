@@ -7,14 +7,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.aaruush16.webarch.aaruush16.DataSync.DataFetcher;
 import com.aaruush16.webarch.aaruush16.R;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
@@ -22,11 +20,10 @@ import com.github.florent37.materialviewpager.header.HeaderDesign;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class DomainFragment extends Fragment {
 
     MaterialViewPager materialViewPager;
     private Toolbar toolbar;
-    SwipeRefreshLayout swipeRefreshLayout;
 
     public DomainFragment() {
         // Required empty public constructor
@@ -39,8 +36,6 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_domain, container, false);
         materialViewPager= (MaterialViewPager) view.findViewById(R.id.materialViewPager);
-        swipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.swipelayout);
-        swipeRefreshLayout.setOnRefreshListener(this);
         materialViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -187,18 +182,4 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
     }
 
 
-    @Override
-    public void onRefresh() {
-
-        DataFetcher dataFetcher=new DataFetcher();
-
-        try{
-            dataFetcher.fetchJSON(getActivity());
-        }catch (Exception e){
-
-        }finally {
-            swipeRefreshLayout.setRefreshing(false);
-        }
-
-    }
 }

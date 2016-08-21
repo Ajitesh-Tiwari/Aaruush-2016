@@ -28,6 +28,7 @@
         android:textSize="24sp"
         android:text="Aaruush '16"/>
     <Button
+        android:textColor="@android:color/black"
         android:padding="25dp"
         android:layout_margin="40dp"
         android:id="@+id/btnSignIn"

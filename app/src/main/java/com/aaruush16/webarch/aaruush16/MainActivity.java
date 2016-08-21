@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ResideMenu resideMenu;
     Toolbar toolbar;
     FrameLayout frameLayout;
+    Realm realm;
+
     int id=0;
 
     @Override
@@ -70,7 +72,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         DataFetcher dataFetcher=new DataFetcher();
-        dataFetcher.fetchJSON(this);
+        dataFetcher.FetchJSON(this);
+
+        realm=Realm.getDefaultInstance();
+        RealmQuery<Event> query=realm.where(Event.class);
+        RealmResults<Event> results=query.findAll();
+        Iterator<Event> eventIterator=results.iterator();
+        while (eventIterator.hasNext()){
+            Event event=eventIterator.next();
+            Log.w("RealmOriginal: ",event.getName());
+            Toast.makeText(context, "RealmOriginal: "+event.getName(), Toast.LENGTH_SHORT).show();
+        }
+
+        results.addChangeListener(new RealmChangeListener<RealmResults<Event>>() {
+            @Override
+            public void onChange(RealmResults<Event> element) {
+                Iterator<Event> eventIterator=element.iterator();
+                while (eventIterator.hasNext()){
+                    Event event=eventIterator.next();
+                    Log.w("RealmChange: ",event.getName());
+                    Toast.makeText(context, "RealmChange: "+event.getName(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
 
@@ -196,5 +220,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
+        realm.removeAllChangeListeners();
+        realm.close();
     }
 }

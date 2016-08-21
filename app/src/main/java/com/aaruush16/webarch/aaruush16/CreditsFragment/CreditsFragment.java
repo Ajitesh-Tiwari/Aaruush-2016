@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -46,6 +47,7 @@ public class CreditsFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_credits, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("About Us");
         int width = getNavBarWidth();
         LinearLayout L = (LinearLayout)view.findViewById(R.id.layout);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
