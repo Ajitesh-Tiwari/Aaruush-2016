@@ -6,4 +6,8 @@
     <item name="black" type="color">#FF000000</item>
     <item name="white" type="color">#FFFFFFFF</item>
     <color name="colorHighlight">#B6B6B6</color>
+    <color name="Indigo">#4b0082</color>
+    <color name="DarkTurqoise">#009688</color>
+    <color name="DarkBlue">#1A237E</color>
+    <color name="Red">#FF0000</color>
 </resources>

@@ -37,7 +37,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DomainFragment.EventActivity">
+        <activity android:name=".DomainFragment.EventActivity"
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
     </application>
