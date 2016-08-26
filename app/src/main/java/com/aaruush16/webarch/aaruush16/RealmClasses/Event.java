@@ -11,17 +11,38 @@ import io.realm.annotations.PrimaryKey;
 public class Event extends RealmObject{
     @PrimaryKey
     public int id;
-
     public String Type;
-    public String SubType;
     public String Name;
     public String Description;
     public String Contact;
-    public String Cost;
-    public String Date;
+    public String Rules;
+    public String Arena;
+    public String Rounds;
     public String ImageURL;
 
-    //Getters
+    public String getRounds() {
+        return Rounds;
+    }
+
+    public void setRounds(String rounds) {
+        Rounds = rounds;
+    }
+
+    public void setRules(String rules) {
+        Rules = rules;
+    }
+
+    public String getRules() {
+        return Rules;
+    }
+
+    public void setArena(String arena) {
+        Arena = arena;
+    }
+
+    public String getArena() {
+        return Arena;
+    }
 
     public int getId() {
         return id;
@@ -29,10 +50,6 @@ public class Event extends RealmObject{
 
     public String getType() {
         return Type;
-    }
-
-    public String getSubType() {
-        return SubType;
     }
 
     public String getName() {
@@ -47,20 +64,9 @@ public class Event extends RealmObject{
         return Contact;
     }
 
-    public String getCost() {
-        return Cost;
-    }
-
-    public String getDate() {
-        return Date;
-    }
-
     public String getImageURL() {
         return ImageURL;
     }
-
-    //Setters
-
 
     public void setId(int id) {
         this.id = id;
@@ -68,10 +74,6 @@ public class Event extends RealmObject{
 
     public void setType(String type) {
         Type = type;
-    }
-
-    public void setSubType(String subType) {
-        SubType = subType;
     }
 
     public void setName(String name) {
@@ -82,16 +84,8 @@ public class Event extends RealmObject{
         Description = description;
     }
 
-    public void setCost(String cost) {
-        Cost = cost;
-    }
-
     public void setContact(String contact) {
         Contact = contact;
-    }
-
-    public void setDate(String date) {
-        Date = date;
     }
 
     public void setImageURL(String imageURL) {

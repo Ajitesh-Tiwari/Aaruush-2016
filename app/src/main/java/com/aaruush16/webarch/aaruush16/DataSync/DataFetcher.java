@@ -28,37 +28,38 @@ import io.realm.RealmResults;
  */
 public class DataFetcher {
     ConnectionDetector connectionDetector;
-
-    String URL="https://spreadsheets.google.com/feeds/list/1-W0923TO_T9nlEq7_O-xXBf80TTKhyUeHKb1_0sWBUg/1/public/values?alt=json";
+    JSONObject eventData;
+    String URL="http://aaruush.net/testing123/eventData/eventNames.json";
+    String URLEvents="http://aaruush.net/testing123/eventData/eventData.json";
+    String URLWorkshops="http://aaruush.net/testing123/eventData/workshop.json";
 
     public void fetchJSON(final Context context){
 
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+        final JsonObjectRequest jsonObjectRequestDomains=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+
                 try {
-                    JSONArray list=response.getJSONObject("feed").getJSONArray("entry");
-                    int len = list.length();
-                    //String result="";
                     RealmList<Event> eventList=new RealmList<Event>();
-                    for (int i = 0; i < len; i++) {
-                        JSONObject row = list.getJSONObject(i);
-                        Event event=new Event();
-                        event.setId(Integer.parseInt(row.getJSONObject("gsx$id").getString("$t")));
-                        event.setType(row.getJSONObject("gsx$type").getString("$t"));
-                        event.setSubType(row.getJSONObject("gsx$sub-type").getString("$t"));
-                        event.setName(row.getJSONObject("gsx$name").getString("$t"));
-                        event.setDescription(row.getJSONObject("gsx$description").getString("$t"));
-                        event.setContact(row.getJSONObject("gsx$contact").getString("$t"));
-                        event.setCost(row.getJSONObject("gsx$cost").getString("$t"));
-                        event.setDate(row.getJSONObject("gsx$date").getString("$t"));
-                        event.setImageURL(row.getJSONObject("gsx$imageurl").getString("$t"));
-                        eventList.add(event);
+                    Iterator<String> stringIterator=response.keys();
+                    while (stringIterator.hasNext()){
+                        String type=stringIterator.next();
+                        JSONArray row = response.getJSONArray(type);
+                        for(int i=0;i<row.length();i++) {
+                            JSONObject jsonObject = eventData.getJSONObject(row.getString(i));
+                            Event event = new Event();
+                            event.setId(jsonObject.getInt("id"));
+                            event.setType(type);
+                            event.setName(row.getString(i));
+                            if(jsonObject.has("desc"))
+                                event.setDescription(jsonObject.getString("desc"));
+                            if(jsonObject.has("coords"))
+                                event.setContact(jsonObject.getString("coords"));
+                            //event.setImageURL(row.getJSONObject("gsx$imageurl").getString("$t"));
+                            eventList.add(event);
+                        }
                     }
-
                     saveData(eventList,context);
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -70,18 +71,29 @@ public class DataFetcher {
             }
         });
 
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, URLEvents, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                eventData=response;
+                AppController.getInstance().addToRequestQueue(jsonObjectRequestDomains);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+
         //Detecting internet connection
         connectionDetector=new ConnectionDetector(context);
         Boolean isConnected=connectionDetector.isConnectingToInternet();
         if (isConnected){
             Toast.makeText(context, "Updating Database", Toast.LENGTH_SHORT).show();
-            //TODO:IF request gets cancel then some safety feature needed to be included
             AppController.getInstance().addToRequestQueue(jsonObjectRequest);
         }else{
             Toast.makeText(context, "No Internet Connectivity\nPlease connect to internet !!!", Toast.LENGTH_SHORT).show();
-    }
-    //TODO:IF request gets cancel then some safety feature needed to be included
-    //AppController.getInstance().addToRequestQueue(jsonObjectRequest);
+        }
 }
 
     public void saveData(final RealmList<Event> eventList, final Context context){

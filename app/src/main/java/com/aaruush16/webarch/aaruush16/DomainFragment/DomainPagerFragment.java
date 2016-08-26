@@ -60,7 +60,7 @@ public class DomainPagerFragment extends Fragment {
         list_event.setLayoutManager(linearLayoutManager);
 
         realm= Realm.getDefaultInstance();
-        RealmQuery<Event> query=realm.where(Event.class).contains("SubType",domain);
+        RealmQuery<Event> query=realm.where(Event.class).contains("Type",domain);
         RealmResults<Event> results=query.findAll();
         eventList=new ArrayList<Event>();
         Iterator<Event> eventIterator=results.iterator();

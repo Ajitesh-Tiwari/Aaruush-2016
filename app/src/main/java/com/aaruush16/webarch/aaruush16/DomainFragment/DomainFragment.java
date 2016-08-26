@@ -1,3 +1,4 @@
+
 package com.aaruush16.webarch.aaruush16.DomainFragment;
 
 
@@ -48,33 +49,33 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
                 DomainPagerFragment domainPagerFragment=new DomainPagerFragment();
                 String txt="";
                 switch (position){
-                    case 0:txt="Architecture";
+                    case 0:txt="architecture";
                         break;
-                    case 1:txt="Bluebook";
+                    case 1:txt="bluebook";
                         break;
-                    case 2:txt="Digital Design";
+                    case 2:txt="digital_design";
                         break;
-                    case 3:txt="Electrizite";
+                    case 3:txt="electizite";
                         break;
-                    case 4:txt="Fundaaz";
+                    case 4:txt="fundaz";
                         break;
-                    case 5:txt="Konstruction";
+                    case 5:txt="konstruktion";
                         break;
-                    case 6:txt="Machination";
+                    case 6:txt="machination";
                         break;
-                    case 7:txt="Mageficie";
+                    case 7:txt="magefficie";
                         break;
-                    case 8:txt="Online";
+                    case 8:txt="online";
                         break;
-                    case 9:txt="Presentatio";
+                    case 9:txt="presentatio";
                         break;
-                    case 10:txt="Robogyan";
+                    case 10:txt="robogyan";
                         break;
-                    case 11:txt="Vimanaz";
+                    case 11:txt="vimanaz";
                         break;
-                    case 12:txt="X-Zone";
+                    case 12:txt="xzone";
                         break;
-                    case 13:txt="Yudhamme";
+                    case 13:txt="yuddhame";
                         break;
                 }
 
@@ -91,33 +92,33 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
             public CharSequence getPageTitle(int position) {
                 String txt=null;
                 switch (position){
-                    case 0:txt="Architecture";
+                    case 0:txt="architecture";
                         break;
-                    case 1:txt="Bluebook";
+                    case 1:txt="bluebook";
                         break;
-                    case 2:txt="Digital Design";
+                    case 2:txt="digital design";
                         break;
-                    case 3:txt="Electrizite";
+                    case 3:txt="electrizite";
                         break;
-                    case 4:txt="Fundaaz";
+                    case 4:txt="fundaz";
                         break;
-                    case 5:txt="Konstruction";
+                    case 5:txt="konstruktion";
                         break;
-                    case 6:txt="Machination";
+                    case 6:txt="machination";
                         break;
-                    case 7:txt="Mageficie";
+                    case 7:txt="magefficie";
                         break;
-                    case 8:txt="Online";
+                    case 8:txt="online";
                         break;
-                    case 9:txt="Presentatio";
+                    case 9:txt="presentatio";
                         break;
-                    case 10:txt="Robogyan";
+                    case 10:txt="robogyan";
                         break;
-                    case 11:txt="Vimanaz";
+                    case 11:txt="vimanaz";
                         break;
-                    case 12:txt="X-Zone";
+                    case 12:txt="x-Zone";
                         break;
-                    case 13:txt="Yudhamme";
+                    case 13:txt="yuddhame";
                         break;
 
                 }
@@ -198,6 +199,5 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
             swipeRefreshLayout.setRefreshing(false);
         }
     }
-
 
 }

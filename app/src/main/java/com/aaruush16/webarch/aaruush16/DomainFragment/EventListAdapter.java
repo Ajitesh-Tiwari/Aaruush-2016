@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +13,6 @@ import android.widget.TextView;
 
 import com.aaruush16.webarch.aaruush16.R;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
-import com.aaruush16.webarch.aaruush16.VolleySingleton.AppController;
-import com.android.volley.toolbox.ImageLoader;
 
 import java.util.List;
 
@@ -64,8 +64,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         public MyViewHolder(View itemView) {
             super(itemView);
-
-
             description = (TextView) itemView.findViewById(R.id.event_txt_desc);
             event_img= (CircleImageView) itemView.findViewById(R.id.event_img);
             event_card= (CardView) itemView.findViewById(R.id.event_card);
@@ -73,9 +71,20 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         public void setData(Event data) {
 
-            description.setText(data.getDescription());
-            ImageLoader imageLoader= AppController.getInstance().getImageLoader();
-            imageLoader.get(data.getImageURL(),ImageLoader.getImageListener(event_img,R.drawable.aaruushlogo,R.drawable.wa));
+            if(data.getDescription()!=null) {
+
+                Spanned result;
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    result = Html.fromHtml(data.getDescription(), Html.FROM_HTML_MODE_LEGACY);
+                } else {
+                    result = Html.fromHtml(data.getDescription());
+                }
+
+                description.setText(result);
+            }
+            //ImageLoader imageLoader= AppController.getInstance().getImageLoader();
+            //imageLoader.get(data.getImageURL(),ImageLoader.getImageListener(event_img,R.drawable.aaruushlogo,R.drawable.wa));
 
 
         }

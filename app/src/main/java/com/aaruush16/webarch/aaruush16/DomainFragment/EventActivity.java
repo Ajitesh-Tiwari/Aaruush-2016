@@ -64,12 +64,10 @@ public class EventActivity extends AppCompatActivity {
         txt_contact= (TextView) findViewById(R.id.txt_contact);
         txt_cost= (TextView) findViewById(R.id.txt_cost);
 
-        ImageLoader imageLoader= AppController.getInstance().getImageLoader();
-        imageLoader.get(event.getImageURL(),ImageLoader.getImageListener(event_img,R.drawable.aaruushlogo,R.drawable.wa));
+//        ImageLoader imageLoader= AppController.getInstance().getImageLoader();
+//        imageLoader.get(event.getImageURL(),ImageLoader.getImageListener(event_img,R.drawable.aaruushlogo,R.drawable.wa));
         txt_description.setText(event.getDescription());
-        txt_date.setText(event.getDate());
         txt_contact.setText(event.getContact());
-        txt_cost.setText(event.getCost());
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             int i=0;
