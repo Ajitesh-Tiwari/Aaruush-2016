@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.aaruush16.webarch.aaruush16.ConnectionDetector.ConnectionDetector;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
 import com.aaruush16.webarch.aaruush16.VolleySingleton.AppController;
 import com.android.volley.Request;
@@ -26,10 +27,11 @@ import io.realm.RealmResults;
  * Created by Rishi on 10-08-2016.
  */
 public class DataFetcher {
+    ConnectionDetector connectionDetector;
 
     String URL="https://spreadsheets.google.com/feeds/list/1-W0923TO_T9nlEq7_O-xXBf80TTKhyUeHKb1_0sWBUg/1/public/values?alt=json";
 
-    public void FetchJSON(final Context context){
+    public void fetchJSON(final Context context){
 
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
@@ -51,12 +53,10 @@ public class DataFetcher {
                         event.setCost(row.getJSONObject("gsx$cost").getString("$t"));
                         event.setDate(row.getJSONObject("gsx$date").getString("$t"));
                         event.setImageURL(row.getJSONObject("gsx$imageurl").getString("$t"));
-
                         eventList.add(event);
-
                     }
 
-                    SaveData(eventList,context);
+                    saveData(eventList,context);
 
 
                 } catch (JSONException e) {
@@ -70,13 +70,23 @@ public class DataFetcher {
             }
         });
 
-
-        //TODO:IF request gets cancel then some safety feature needed to be included
-        AppController.getInstance().addToRequestQueue(jsonObjectRequest);
+        //Detecting internet connection
+        connectionDetector=new ConnectionDetector(context);
+        Boolean isConnected=connectionDetector.isConnectingToInternet();
+        if (isConnected){
+            Toast.makeText(context, "Updating Database", Toast.LENGTH_SHORT).show();
+            //TODO:IF request gets cancel then some safety feature needed to be included
+            AppController.getInstance().addToRequestQueue(jsonObjectRequest);
+        }else{
+            Toast.makeText(context, "No Internet Connectivity\nPlease connect to internet !!!", Toast.LENGTH_SHORT).show();
     }
+    //TODO:IF request gets cancel then some safety feature needed to be included
+    //AppController.getInstance().addToRequestQueue(jsonObjectRequest);
+}
 
-    public void SaveData(final RealmList<Event> eventList, final Context context){
+    public void saveData(final RealmList<Event> eventList, final Context context){
         final Realm realm=Realm.getDefaultInstance();
+        final Boolean success=true;
         realm.executeTransactionAsync(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -91,7 +101,7 @@ public class DataFetcher {
                 while (eventIterator.hasNext()){
                     Event event=eventIterator.next();
                     Log.w("Realm",event.getName());
-                    Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, null);

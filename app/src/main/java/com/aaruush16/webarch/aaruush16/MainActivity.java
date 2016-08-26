@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ResideMenu resideMenu;
     Toolbar toolbar;
     FrameLayout frameLayout;
-    Realm realm;
 
     int id=0;
 
@@ -72,40 +71,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         DataFetcher dataFetcher=new DataFetcher();
-        dataFetcher.FetchJSON(this);
-
-        realm=Realm.getDefaultInstance();
-        RealmQuery<Event> query=realm.where(Event.class);
-        RealmResults<Event> results=query.findAll();
-        Iterator<Event> eventIterator=results.iterator();
-        while (eventIterator.hasNext()){
-            Event event=eventIterator.next();
-            Log.w("RealmOriginal: ",event.getName());
-            Toast.makeText(context, "RealmOriginal: "+event.getName(), Toast.LENGTH_SHORT).show();
-        }
-
-        results.addChangeListener(new RealmChangeListener<RealmResults<Event>>() {
-            @Override
-            public void onChange(RealmResults<Event> element) {
-                Iterator<Event> eventIterator=element.iterator();
-                while (eventIterator.hasNext()){
-                    Event event=eventIterator.next();
-                    Log.w("RealmChange: ",event.getName());
-                    Toast.makeText(context, "RealmChange: "+event.getName(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-
-
-
+        dataFetcher.fetchJSON(this);
         frameLayout= (FrameLayout) findViewById(R.id.frameLayout);
 
         Iconify.with(new SimpleLineIconsModule());
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(firebaseUser.getDisplayName());
-        getSupportActionBar().setSubtitle("Welcome to Aaruush 2016");
+        //getSupportActionBar().setSubtitle("Welcome to Aaruush 2016");
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         resideMenu.setBackground(R.drawable.bg_signin);
@@ -220,7 +193,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-        realm.removeAllChangeListeners();
-        realm.close();
     }
 }
