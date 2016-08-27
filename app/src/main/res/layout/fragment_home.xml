@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/background"/>
+            android:src="@drawable/home_background"/>
         <com.mikhaellopez.circularimageview.CircularImageView
             android:layout_gravity="center"
             android:layout_margin="16dp"

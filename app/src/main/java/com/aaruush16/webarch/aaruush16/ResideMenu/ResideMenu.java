@@ -301,7 +301,7 @@ public class ResideMenu extends FrameLayout {
     }
 
     /**
-     * Set the background image of menu;
+     * Set the home_background image of menu;
      *
      * @param imageResource
      */

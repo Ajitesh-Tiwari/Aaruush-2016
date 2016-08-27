@@ -37,6 +37,9 @@ dependencies {
     compile 'com.joanzapata.iconify:android-iconify-simplelineicons:2.2.2'
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.mikhaellopez:circularimageview:3.0.2'
+
+    compile 'com.ramotion.foldingcell:folding-cell:1.0.1'
+
     compile ('com.github.florent37:materialviewpager:1.2.0@aar'){
         transitive = true
     }

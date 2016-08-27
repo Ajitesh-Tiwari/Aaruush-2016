@@ -10,4 +10,5 @@
     <color name="DarkTurqoise">#009688</color>
     <color name="DarkBlue">#1A237E</color>
     <color name="Red">#FF0000</color>
+    <color name="bgBackSideColor">#f4f0ff</color>
 </resources>

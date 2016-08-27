@@ -116,6 +116,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.joanzapata.iconify/android-iconify/2.2.2/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mikhaellopez/circularimageview/3.0.2/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.ramotion.foldingcell/folding-cell/1.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/2.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/io.realm/realm-android-library/1.1.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
@@ -141,6 +142,7 @@
     <orderEntry type="library" exported="" name="support-compat-24.2.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-24.2.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-base-9.2.0" level="project" />
+    <orderEntry type="library" exported="" name="folding-cell-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="relinker-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="firebase-invites-9.2.0" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-24.2.0" level="project" />
