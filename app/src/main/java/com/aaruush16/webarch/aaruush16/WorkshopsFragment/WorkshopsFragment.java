@@ -48,36 +48,6 @@ public class WorkshopsFragment extends Fragment {
             }
         });
 
-        final FoldingCell fc1 = (FoldingCell) rootView.findViewById(R.id.folding_cell1);
-
-        // attach click listener to folding cell
-        fc1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fc1.toggle(false);
-            }
-        });
-
-        final FoldingCell fc2 = (FoldingCell) rootView.findViewById(R.id.folding_cell2);
-
-        // attach click listener to folding cell
-        fc2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fc2.toggle(false);
-            }
-        });
-
-        final FoldingCell fc3 = (FoldingCell) rootView.findViewById(R.id.folding_cell3);
-
-        // attach click listener to folding cell
-        fc3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fc3.toggle(false);
-            }
-        });
-
         // attach click listener to fold btn
 //        final Button foldBtn = (Button) rootView.findViewById(R.id.fold_btn);
 //        foldBtn.setOnClickListener(new View.OnClickListener() {

@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
@@ -18,8 +17,11 @@
   >
 
     <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
         android:id="@+id/folding_cell"
         android:layout_width="match_parent"
+        folding-cell:backSideColor="@color/white"
+        folding-cell:additionalFlipsCount="1"
         android:layout_height="wrap_content">
 
         <FrameLayout
@@ -38,9 +40,64 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="THIS IS the DESCRIPTION of the event. Note that the description must be atleast twice the height of the title. Always."
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="Description: "
                     />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:id="@+id/desc"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="Cost: "
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:id="@+id/cost"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="Contact: "
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:id="@+id/contact"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:id="@+id/team"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:id="@+id/date_time"
+                    />
             </LinearLayout>
         </FrameLayout>
 
@@ -48,143 +105,33 @@
             android:id="@+id/cell_title_view"
             android:layout_width="match_parent"
             android:padding="10dp"
+            android:background="@color/DarkBlue"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text="This is the title of the event"
-                android:background="@android:color/white" />
-        </FrameLayout>
-
-    </com.ramotion.foldingcell.FoldingCell>
-
-
-    <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/folding_cell1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/DarkBlue"
-            android:padding="10dp"
-            android:visibility="gone">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                >
 
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="THIS IS the DESCRIPTION of the event. Note that the description must be atleast twice the height of the title. Always."
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/about_us"
                     />
-
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="This is the title of the event"
+                    android:id="@+id/title"
+                    android:textColor="@color/white"
+                    />
             </LinearLayout>
-        </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text="This is the title of the event"
-                android:background="@android:color/white" />
         </FrameLayout>
 
     </com.ramotion.foldingcell.FoldingCell>
 
-    <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:id="@+id/folding_cell2"
-        android:layout_height="wrap_content">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-
-            android:background="@color/DarkBlue"
-            android:visibility="gone">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="THIS IS the DESCRIPTION of the event. Note that the description must be atleast twice the height of the title. Always."
-                    />
-
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:padding="10dp"
-
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text="This is the title of the event"
-                android:background="@android:color/white" />
-        </FrameLayout>
-
-    </com.ramotion.foldingcell.FoldingCell>
-
-
-    <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:id="@+id/folding_cell3"
-        android:layout_height="wrap_content">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-
-            android:background="@color/DarkBlue"
-            android:visibility="gone">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:text="THIS IS the DESCRIPTION of the event. Note that the description must be atleast twice the height of the title. Always."
-                    />
-
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:padding="10dp"
-
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:text="This is the title of the event"
-                android:background="@android:color/white" />
-        </FrameLayout>
-
-    </com.ramotion.foldingcell.FoldingCell>
 
 
 </LinearLayout>
