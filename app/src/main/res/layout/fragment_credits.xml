@@ -15,7 +15,7 @@
         android:src="@drawable/ic_webarch_logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="133dp" />
 
     <LinearLayout
         android:id="@+id/layout"

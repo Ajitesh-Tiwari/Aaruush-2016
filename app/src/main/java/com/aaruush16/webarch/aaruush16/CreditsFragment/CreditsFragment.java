@@ -48,13 +48,13 @@ public class CreditsFragment extends Fragment{
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_credits, container, false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("About Us");
-        int width = getNavBarWidth();
+//        int width = getNavBarWidth();
         LinearLayout L = (LinearLayout)view.findViewById(R.id.layout);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         Context c = getActivity();
-        layoutParams.setMargins(0,0,0,((int)(1.5*width)));
+//        layoutParams.setMargins(0,0,0,((int)(1.5*width)));
         TextView t = new TextView(c);
         t.setTextSize(TypedValue.COMPLEX_UNIT_SP,16);
         t.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
