@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.aaruush16.webarch.aaruush16.ConnectionDetector.ConnectionDetector;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
+import com.aaruush16.webarch.aaruush16.RealmClasses.Workshop;
 import com.aaruush16.webarch.aaruush16.VolleySingleton.AppController;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -35,6 +36,8 @@ public class DataFetcher {
 
     public void fetchJSON(final Context context){
 
+
+
         final JsonObjectRequest jsonObjectRequestDomains=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -42,11 +45,11 @@ public class DataFetcher {
                 try {
                     RealmList<Event> eventList=new RealmList<Event>();
                     Iterator<String> stringIterator=response.keys();
-                    Toast.makeText(context, "1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "1", Toast.LENGTH_SHORT).show();
                     while (stringIterator.hasNext()){
                         String type=stringIterator.next();
                         JSONArray row = response.getJSONArray(type);
-                        Toast.makeText(context, ""+type, Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(context, ""+type, Toast.LENGTH_SHORT).show();
                         for(int i=0;i<row.length();i++) {
                             JSONObject jsonObject = eventData.getJSONObject(row.getString(i));
                             Event event = new Event();
@@ -79,8 +82,8 @@ public class DataFetcher {
                             eventList.add(event);
                         }
                     }
-                    Toast.makeText(context, "2", Toast.LENGTH_SHORT).show();
-                    saveData(eventList,context);
+                    //Toast.makeText(context, "2", Toast.LENGTH_SHORT).show();
+                    saveDataEvent(eventList,context);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(context, "exception: "+e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -106,6 +109,45 @@ public class DataFetcher {
             }
         });
 
+        JsonObjectRequest workshopRequest=new JsonObjectRequest(Request.Method.GET, URLWorkshops, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        RealmList<Workshop> workshopList=new RealmList<>();
+                        Iterator<String> stringIterator=response.keys();
+                        //Toast.makeText(context, "1", Toast.LENGTH_SHORT).show();
+                        try {
+                            while (stringIterator.hasNext()) {
+                                String name=stringIterator.next();
+                                JSONObject workshop_json = response.getJSONObject(name);
+                                Workshop workshop = new Workshop();
+                                workshop.setId(workshop_json.getInt("id"));
+                          //      Toast.makeText(context, "ID: "+workshop.getId(), Toast.LENGTH_SHORT).show();
+                                workshop.setName(name);
+                                workshop.setDesc(workshop_json.getString("description"));
+                                workshop.setTeam(workshop_json.getString("team"));
+                                workshop.setDate(workshop_json.getString("date"));
+                                workshop.setCost(workshop_json.getString("cost"));
+                                workshop.setTime(workshop_json.getString("time"));
+                                workshop.setCompany_name(workshop_json.getString("company_name"));
+                                workshopList.add(workshop);
+                            }
+                            //Toast.makeText(context, "2", Toast.LENGTH_SHORT).show();
+                            saveDataWorkshop(workshopList,context);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(context, "exception: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+
 
         //Detecting internet connection
         connectionDetector=new ConnectionDetector(context);
@@ -113,12 +155,13 @@ public class DataFetcher {
         if (isConnected){
             Toast.makeText(context, "Updating Database", Toast.LENGTH_SHORT).show();
             AppController.getInstance().addToRequestQueue(jsonObjectRequest);
+            AppController.getInstance().addToRequestQueue(workshopRequest);
         }else{
             Toast.makeText(context, "No Internet Connectivity\nPlease connect to internet !!!", Toast.LENGTH_SHORT).show();
         }
-}
+    }
 
-    public void saveData(final RealmList<Event> eventList, final Context context){
+    public void saveDataEvent(final RealmList<Event> eventList, final Context context){
         final Realm realm=Realm.getDefaultInstance();
         final Boolean success=true;
         realm.executeTransactionAsync(new Realm.Transaction() {
@@ -137,6 +180,32 @@ public class DataFetcher {
                     Log.w("Realm",event.getName());
                     //Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
                 }
+                Toast.makeText(context, "Events Updated!!!", Toast.LENGTH_SHORT).show();
+            }
+        }, null);
+        realm.close();
+    }
+
+    public void saveDataWorkshop(final RealmList<Workshop> workshopList, final Context context){
+        final Realm realm=Realm.getDefaultInstance();
+        final Boolean success=true;
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                realm.copyToRealmOrUpdate(workshopList);
+            }
+        }, new Realm.Transaction.OnSuccess() {
+            @Override
+            public void onSuccess() {
+                RealmQuery<Workshop> query=realm.where(Workshop.class);
+                RealmResults<Workshop> results=query.findAll();
+                Iterator<Workshop> eventIterator=results.iterator();
+                while (eventIterator.hasNext()){
+                    Workshop workshop=eventIterator.next();
+                    Log.w("Realm",workshop.getName());
+                    //Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(context, "Workshops Updated!!!", Toast.LENGTH_SHORT).show();
             }
         }, null);
         realm.close();

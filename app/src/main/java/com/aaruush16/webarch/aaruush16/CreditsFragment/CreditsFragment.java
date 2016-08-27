@@ -67,6 +67,21 @@ public class CreditsFragment extends Fragment{
                 startActivity(browserIntent);
             }
         });
+        context=c;
+        img_wa_logo= (ImageView) view.findViewById(R.id.img_wa_logo);
+        img_wa_logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(count<5) count++;
+                else    {
+                    count=0;
+                    Animation animation= AnimationUtils.loadAnimation(context,R.anim.rotate_wa);
+                    animation.setInterpolator(context,android.R.anim.accelerate_decelerate_interpolator);
+                    //animation.setDuration(1000);
+                    img_wa_logo.startAnimation(animation);
+                }
+            }
+        });
 
         L.addView(t,layoutParams);
         return view;
