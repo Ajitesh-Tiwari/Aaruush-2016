@@ -84,9 +84,6 @@ public class DomainPagerFragment extends Fragment {
             }
         });
 
-
-
-
         return view;
     }
 

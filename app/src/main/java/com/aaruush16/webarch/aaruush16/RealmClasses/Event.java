@@ -19,6 +19,7 @@ public class Event extends RealmObject{
     public String Arena;
     public String Rounds;
     public String ImageURL;
+    public Boolean Fav;
 
     public String getRounds() {
         return Rounds;
@@ -68,6 +69,10 @@ public class Event extends RealmObject{
         return ImageURL;
     }
 
+    public Boolean getFav() {
+        return Fav;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -92,4 +97,7 @@ public class Event extends RealmObject{
         ImageURL = imageURL;
     }
 
+    public void setFav(Boolean fav) {
+        Fav = fav;
+    }
 }

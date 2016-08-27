@@ -69,23 +69,30 @@ public class EventActivity extends AppCompatActivity {
         txt_description.setText(event.getDescription());
         txt_contact.setText(event.getContact());
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        if(event.getFav()){
+            fab.setImageResource(R.drawable.ic_star_white_24dp);
+        }else{
+            fab.setImageResource(R.drawable.ic_star_border_white_24dp);
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             int i=0;
             @Override
             public void onClick(View view) {
-                if(i==0) {
+                realm.beginTransaction();
+                if(!event.getFav()) {
                     fab.setImageResource(R.drawable.ic_star_white_24dp);
                     Snackbar.make(view, "Added To Favourites", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
-                    i++;
+                    event.setFav(true);
                 }
                 else
                 {
                     fab.setImageResource(R.drawable.ic_star_border_white_24dp);
                     Snackbar.make(view, "Removed from Favourites", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
-                    i=0;
+                    event.setFav(false);
                 }
+                realm.commitTransaction();
             }
         });
     }

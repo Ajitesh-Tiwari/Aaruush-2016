@@ -42,26 +42,48 @@ public class DataFetcher {
                 try {
                     RealmList<Event> eventList=new RealmList<Event>();
                     Iterator<String> stringIterator=response.keys();
+                    Toast.makeText(context, "1", Toast.LENGTH_SHORT).show();
                     while (stringIterator.hasNext()){
                         String type=stringIterator.next();
                         JSONArray row = response.getJSONArray(type);
+                        Toast.makeText(context, ""+type, Toast.LENGTH_SHORT).show();
                         for(int i=0;i<row.length();i++) {
                             JSONObject jsonObject = eventData.getJSONObject(row.getString(i));
                             Event event = new Event();
                             event.setId(jsonObject.getInt("id"));
                             event.setType(type);
                             event.setName(row.getString(i));
+                            //Toast.makeText(context, ""+i+" : "+event.getId(), Toast.LENGTH_SHORT).show();
                             if(jsonObject.has("desc"))
                                 event.setDescription(jsonObject.getString("desc"));
                             if(jsonObject.has("coords"))
                                 event.setContact(jsonObject.getString("coords"));
                             //event.setImageURL(row.getJSONObject("gsx$imageurl").getString("$t"));
+
+                            Realm realm=Realm.getDefaultInstance();
+                            RealmQuery<Event> query=realm.where(Event.class).equalTo("id",event.getId());
+                            Event event_q=new Event();
+                            event_q=query.findFirst();
+
+                            if(event_q==null){
+                                event.setFav(false);
+                            }else {
+                                if(event_q.getFav()==true) {
+                                    event.setFav(true);
+                                }else{
+                                    event.setFav(false);
+                                }
+                            }
+
+
                             eventList.add(event);
                         }
                     }
+                    Toast.makeText(context, "2", Toast.LENGTH_SHORT).show();
                     saveData(eventList,context);
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(context, "exception: "+e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
