@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,7 +33,7 @@ public class EventActivity extends AppCompatActivity {
     Event event;
     ImageView event_img;
     CollapsingToolbarLayout mCollapse;
-    TextView txt_description,txt_date,txt_contact,txt_cost;
+    TextView txt_description,txt_date,txt_contact,txt_round,txt_desc_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,12 +63,40 @@ public class EventActivity extends AppCompatActivity {
         txt_description= (TextView) findViewById(R.id.txt_description);
         txt_date= (TextView) findViewById(R.id.txt_date);
         txt_contact= (TextView) findViewById(R.id.txt_contact);
-        txt_cost= (TextView) findViewById(R.id.txt_cost);
+        txt_round= (TextView) findViewById(R.id.txt_rounds);
+        txt_desc_title= (TextView) findViewById(R.id.txt_desc_title);
 
 //        ImageLoader imageLoader= AppController.getInstance().getImageLoader();
 //        imageLoader.get(event.getImageURL(),ImageLoader.getImageListener(event_img,R.drawable.aaruushlogo,R.drawable.wa));
-        txt_description.setText(event.getDescription());
-        txt_contact.setText(event.getContact());
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            if(event.getDescription().compareTo("Nil")!=0){
+                txt_description.setText(Html.fromHtml(event.getDescription(),Html.FROM_HTML_MODE_LEGACY));
+            }else{
+                txt_description.setText("No Description is available.");
+            }
+            txt_round.setText(Html.fromHtml(event.getRounds(),Html.FROM_HTML_MODE_LEGACY));
+            if(event.getContact().compareTo("Nil")!=0){
+                txt_contact.setText(Html.fromHtml(event.getContact(),Html.FROM_HTML_MODE_LEGACY));
+            }else{
+                txt_contact.setText("No Contacts available.");
+            }
+
+        } else {
+
+            if(event.getDescription().compareTo("Nil")!=0){
+                txt_description.setText(Html.fromHtml(event.getDescription()));
+            }else{
+                txt_description.setText("No Description is available.");
+            }
+
+            if(event.getContact().compareTo("Nil")!=0){
+                txt_contact.setText(Html.fromHtml(event.getContact()));
+            }else {
+                txt_contact.setText("No Contacts available.");
+            }
+            txt_round.setText(Html.fromHtml(event.getRounds()));
+        }
+
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if(event.getFav()){
             fab.setImageResource(R.drawable.ic_star_white_24dp);

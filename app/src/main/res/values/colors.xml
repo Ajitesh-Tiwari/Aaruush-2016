@@ -3,7 +3,6 @@
     <color name="colorPrimary">#ff8018</color>
     <color name="colorPrimaryDark">#cc6109</color>
     <color name="colorAccent">#f9d408</color>
-    <item name="black" type="color">#FF000000</item>
     <item name="white" type="color">#FFFFFFFF</item>
     <color name="colorHighlight">#B6B6B6</color>
     <color name="Indigo">#4b0082</color>
@@ -11,4 +10,5 @@
     <color name="DarkBlue">#1A237E</color>
     <color name="Red">#FF0000</color>
     <color name="bgBackSideColor">#f4f0ff</color>
+    <color name="black">#000000</color>
 </resources>

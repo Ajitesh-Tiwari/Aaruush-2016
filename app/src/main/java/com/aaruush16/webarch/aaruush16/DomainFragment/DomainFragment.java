@@ -77,6 +77,7 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         break;
                     case 13:txt="yuddhame";
                         break;
+                    case 14:txt="special_event";
                 }
 
                 domainPagerFragment.setData(txt);
@@ -85,7 +86,7 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
             @Override
             public int getCount() {
-                return 14;
+                return 15;
             }
 
             @Override
@@ -120,6 +121,7 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         break;
                     case 13:txt="yuddhame";
                         break;
+                    case 14:txt="special event";
 
                 }
                 return txt;

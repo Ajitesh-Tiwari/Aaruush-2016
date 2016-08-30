@@ -59,10 +59,15 @@ public class DataFetcher {
                             //Toast.makeText(context, ""+i+" : "+event.getId(), Toast.LENGTH_SHORT).show();
                             if(jsonObject.has("desc"))
                                 event.setDescription(jsonObject.getString("desc"));
+                            else
+                                event.setDescription("Nil");
                             if(jsonObject.has("coords"))
                                 event.setContact(jsonObject.getString("coords"));
+                            else
+                                event.setContact("Nil");
                             //event.setImageURL(row.getJSONObject("gsx$imageurl").getString("$t"));
-
+                            if(jsonObject.has("rounds"))
+                                event.setRounds(jsonObject.getString("rounds"));
                             Realm realm=Realm.getDefaultInstance();
                             RealmQuery<Event> query=realm.where(Event.class).equalTo("id",event.getId());
                             Event event_q=new Event();
