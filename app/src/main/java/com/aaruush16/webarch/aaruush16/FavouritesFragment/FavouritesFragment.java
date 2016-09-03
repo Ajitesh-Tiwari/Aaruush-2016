@@ -7,10 +7,12 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aaruush16.webarch.aaruush16.DomainFragment.EventListAdapter;
 import com.aaruush16.webarch.aaruush16.R;
@@ -54,11 +56,14 @@ public class FavouritesFragment extends Fragment {
         context=getActivity();
         View view= inflater.inflate(R.layout.fragment_favourites, container, false);
         list_event= (RecyclerView) view.findViewById(R.id.list_event_fav);
-
         linearLayoutManager=new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         list_event.setLayoutManager(linearLayoutManager);
+        fetchFav();
+        return view;
+    }
 
+    void fetchFav(){
         realm= Realm.getDefaultInstance();
         RealmQuery<Event> query=realm.where(Event.class).equalTo("Fav",true);
         RealmResults<Event> results=query.findAll();
@@ -71,21 +76,12 @@ public class FavouritesFragment extends Fragment {
         eventListAdapter=new EventListAdapter(context,eventList);
         list_event.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         list_event.setAdapter(eventListAdapter);
-
-        results.addChangeListener(new RealmChangeListener<RealmResults<Event>>() {
-            @Override
-            public void onChange(RealmResults<Event> element) {
-                Iterator<Event> eventIterator=element.iterator();
-                eventList=new ArrayList<Event>();
-                while (eventIterator.hasNext()){
-                    Event event=eventIterator.next();
-                    eventList.add(event);
-                }
-                eventListAdapter.notifyDataSetChanged();
-            }
-        });
-
-        return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        eventListAdapter.notifyDataSetChanged();
+        fetchFav();
+    }
 }

@@ -104,7 +104,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
             title.setText(data.getName());
 
-            if(data.getContact().compareTo("Nil")!=0) {
+            if(data.getDescription().compareTo("Nil")!=0) {
 
                 Spanned result;
 

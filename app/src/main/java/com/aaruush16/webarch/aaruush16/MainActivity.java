@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 changeFragment(new FavouritesFragment());
                 break;
             case 5:
-                changeFragment(new PatronsFragment());
+                changeFragment(new PatronsFragment(),"IGNORE");
                 break;
             case 6:
                 changeFragment(new TeamsFragment());

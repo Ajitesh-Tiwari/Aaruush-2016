@@ -77,7 +77,7 @@ public class WorkshopListAdapter extends RecyclerView.Adapter<WorkshopListAdapte
             title.setText(data.getName());
             desc.setText(data.getDesc());
             cost.setText(data.getCost());
-            date.setText("Date: "+data.getDate()+"\nTime: "+data.getTime());
+            date.setText("Date: "+Html.fromHtml(data.getDate()));
             company.setText("Company: "+data.getCompany_name());
             team.setText(data.getTeam());
             foldingCell.setOnClickListener(new View.OnClickListener() {
