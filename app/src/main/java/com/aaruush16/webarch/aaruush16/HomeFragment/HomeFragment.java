@@ -90,44 +90,4 @@ public class HomeFragment extends Fragment {
                     Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp&hl=en"));
         }
     }
-
-//    private void StartAnimations() {
-//        Animation anim = AnimationUtils.loadAnimation(c, R.anim.alpha);
-//        anim.reset();
-//        final TextView txt = (TextView)rootView.findViewById(R.id.txt_name);
-//        final TextView t = (TextView)rootView.findViewById(R.id.disc);
-//        t.setVisibility(View.GONE);
-//        anim.setAnimationListener(new Animation.AnimationListener() {
-//            @Override
-//            public void onAnimationStart(Animation animation) {
-//
-//            }
-//
-//            @Override
-//            public void onAnimationEnd(Animation animation) {
-//                Typeface custom_font = Typeface.createFromAsset(c.getAssets(),  "fonts/xirod.ttf");  // adding custom font(xirod)
-//                txt.setVisibility(View.VISIBLE);
-//                txt.setTypeface(custom_font);
-//                fadeIn = new AlphaAnimation(0.0f , 1.0f ) ;
-//                fadeIn.setDuration(500);
-//                fadeIn.setFillAfter(true);
-//                txt.startAnimation(fadeIn);
-//                t.setVisibility(View.VISIBLE);
-//            }
-//
-//            @Override
-//            public void onAnimationRepeat(Animation animation) {
-//
-//            }
-//        });
-//        LinearLayout l = (LinearLayout) rootView.findViewById(R.id.lin_lay);
-//        l.clearAnimation();
-//        l.startAnimation(anim);
-//        anim = AnimationUtils.loadAnimation(c, R.anim.translate);
-//        anim.reset();
-//        ImageView iv = (ImageView) rootView.findViewById(R.id.alogo);
-//        iv.clearAnimation();
-//        iv.startAnimation(anim);
-//
-//    }
 }

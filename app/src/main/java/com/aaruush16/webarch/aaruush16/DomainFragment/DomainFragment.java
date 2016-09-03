@@ -23,11 +23,10 @@ import com.github.florent37.materialviewpager.header.HeaderDesign;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
+public class DomainFragment extends Fragment{
 
     MaterialViewPager materialViewPager;
     private Toolbar toolbar;
-    SwipeRefreshLayout swipeRefreshLayout;
 
     public DomainFragment() {
         // Required empty public constructor
@@ -41,8 +40,6 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
         View view=inflater.inflate(R.layout.fragment_domain, container, false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Domain");
         materialViewPager= (MaterialViewPager) view.findViewById(R.id.materialViewPager);
-        swipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.swipelayout);
-        swipeRefreshLayout.setOnRefreshListener(this);
         materialViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
@@ -55,7 +52,7 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         break;
                     case 2:txt="digital_design";
                         break;
-                    case 3:txt="electizite";
+                    case 3:txt="electrizite";
                         break;
                     case 4:txt="fundaz";
                         break;
@@ -67,7 +64,7 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         break;
                     case 8:txt="online";
                         break;
-                    case 9:txt="presentatio";
+                    case 9:txt="praesentatio";
                         break;
                     case 10:txt="robogyan";
                         break;
@@ -111,7 +108,7 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
                         break;
                     case 8:txt="online";
                         break;
-                    case 9:txt="presentatio";
+                    case 9:txt="praesentatio";
                         break;
                     case 10:txt="robogyan";
                         break;
@@ -189,17 +186,15 @@ public class DomainFragment extends Fragment implements SwipeRefreshLayout.OnRef
         materialViewPager.getToolbar().removeAllViews();
         return view;
     }
-
-    @Override
-    public void onRefresh() {
-
-        DataFetcher dataFetcher=new DataFetcher();
-        try{
-            dataFetcher.fetchJSON(getActivity());
-        }catch (Exception e){
-        }finally {
-            swipeRefreshLayout.setRefreshing(false);
-        }
-    }
+//    public void onRefresh() {
+//
+//        DataFetcher dataFetcher=new DataFetcher();
+//        try{
+//            dataFetcher.fetchJSON(getActivity());
+//        }catch (Exception e){
+//        }finally {
+//            swipeRefreshLayout.setRefreshing(false);
+//        }
+//    }
 
 }

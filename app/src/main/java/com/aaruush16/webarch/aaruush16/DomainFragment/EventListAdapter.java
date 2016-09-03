@@ -49,21 +49,20 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
             @Override
             public void onClick(View view) {
 
-                Animation animation= AnimationUtils.loadAnimation(context,R.anim.card_expand);
+                Animation animation= AnimationUtils.loadAnimation(context,R.anim.fade_out);
                 animation.setInterpolator(context,android.R.anim.decelerate_interpolator);
                 animation.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
-
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
                         Intent intent=new Intent(context,EventActivity.class);
                         intent.putExtra("id",eventList.get(position).getId());
                         context.startActivity(intent);
                         ((AppCompatActivity)context).overridePendingTransition(0,R.anim.fade_out);
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
                     }
 
                     @Override
@@ -89,15 +88,14 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
 
         TextView description;
         TextView title;
-        CircleImageView event_img;
         CardView event_card;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             description = (TextView) itemView.findViewById(R.id.event_txt_desc);
-            event_img= (CircleImageView) itemView.findViewById(R.id.event_img);
             event_card= (CardView) itemView.findViewById(R.id.event_card);
             title= (TextView) itemView.findViewById(R.id.event_txt_title);
+
         }
 
         public void setData(Event data) {
@@ -114,12 +112,28 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.MyVi
                     result = Html.fromHtml(data.getDescription());
                 }
 
-                description.setText(result);
+                description.setText(trim(result));
+            }
+            else{
+                description.setText("No Description is available.");
             }
             //ImageLoader imageLoader= AppController.getInstance().getImageLoader();
             //imageLoader.get(data.getImageURL(),ImageLoader.getImageListener(event_img,R.drawable.aaruushlogo,R.drawable.wa));
 
 
         }
+    }
+    public static CharSequence trim(CharSequence s) {
+        int start=0;
+        int end=s.length();
+        while (start < end && Character.isWhitespace(s.charAt(start))) {
+            start++;
+        }
+
+        while (end > start && Character.isWhitespace(s.charAt(end - 1))) {
+            end--;
+        }
+
+        return s.subSequence(start, end);
     }
 }

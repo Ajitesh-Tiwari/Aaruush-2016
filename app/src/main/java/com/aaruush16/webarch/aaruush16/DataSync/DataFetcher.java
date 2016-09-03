@@ -61,6 +61,10 @@ public class DataFetcher {
                                 event.setDescription(jsonObject.getString("desc"));
                             else
                                 event.setDescription("Nil");
+                            if(jsonObject.has("rules"))
+                                event.setRules(jsonObject.getString("rules"));
+                            else
+                                event.setRules("Nil");
                             if(jsonObject.has("coords"))
                                 event.setContact(jsonObject.getString("coords"));
                             else
