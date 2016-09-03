@@ -54,6 +54,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     int id=0;
 
+
+    private void share()
+    {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String appUrl = "https://play.google.com/store/apps/details?id=com.aaruush16.webarch.aaruush16";
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Aaruush 16");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, appUrl);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -152,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 changeFragment(new TeamsFragment());
                 break;
             case 7:
-
+                share();
                 break;
             case 8:
                 AuthUI.getInstance().signOut(MainActivity.this).addOnCompleteListener(new OnCompleteListener<Void>() {
