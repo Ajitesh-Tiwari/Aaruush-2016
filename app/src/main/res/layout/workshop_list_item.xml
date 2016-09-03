@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:layout_height="wrap_content">
+
 <com.ramotion.foldingcell.FoldingCell xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
     android:id="@+id/folding_cell"
     android:layout_width="match_parent"
     folding-cell:backSideColor="@color/white"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_height="wrap_content">
 
 
     <FrameLayout
@@ -13,14 +20,12 @@
         android:layout_width="match_parent"
         android:minHeight="250dp"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:background="@color/DarkBlue"
         android:visibility="gone">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:isScrollContainer="true">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -91,7 +96,6 @@
         android:id="@+id/cell_title_view"
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:padding="10dp"
         android:background="@color/DarkBlue">
 
         <LinearLayout
@@ -117,3 +121,5 @@
     </FrameLayout>
 
 </com.ramotion.foldingcell.FoldingCell>
+
+</RelativeLayout>

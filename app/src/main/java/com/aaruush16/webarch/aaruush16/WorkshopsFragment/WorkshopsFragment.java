@@ -13,7 +13,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,9 +44,9 @@ public class WorkshopsFragment extends Fragment {
     Context context;
     String domain;
     TextView txt_domain;
-    RecyclerView list_event;
-    WorkshopListAdapter workshopListAdapter;
-    List<Workshop> eventList;
+    ListView list_event;
+    WorkshopAdapter workshopAdapter;
+    ArrayList<Workshop> eventList;
     Realm realm;
     LinearLayoutManager linearLayoutManager;
 
@@ -94,12 +96,12 @@ public class WorkshopsFragment extends Fragment {
         context=getContext();
         View view=rootView;
         // txt_domain= (TextView) view.findViewById(R.id.txt_domain);
-        list_event= (RecyclerView) view.findViewById(R.id.list_workshop);
+        list_event= (ListView) view.findViewById(R.id.list_workshop);
         // txt_domain.setText(domain);
 
-        linearLayoutManager=new LinearLayoutManager(context);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        list_event.setLayoutManager(linearLayoutManager);
+//        linearLayoutManager=new LinearLayoutManager(context);
+//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//        list_event.setLayoutManager(linearLayoutManager);
 
         realm= Realm.getDefaultInstance();
         RealmQuery<Workshop> query=realm.where(Workshop.class);
@@ -110,9 +112,9 @@ public class WorkshopsFragment extends Fragment {
             Workshop event=eventIterator.next();
             eventList.add(event);
         }
-        workshopListAdapter=new WorkshopListAdapter(context,eventList);
-        list_event.addItemDecoration(new MaterialViewPagerHeaderDecorator());
-        list_event.setAdapter(workshopListAdapter);
+        workshopAdapter=new WorkshopAdapter(context,eventList);
+//        list_event.addItemDecoration(new MaterialViewPagerHeaderDecorator());
+        list_event.setAdapter(workshopAdapter);
         results.addChangeListener(new RealmChangeListener<RealmResults<Workshop>>() {
             @Override
             public void onChange(RealmResults<Workshop> element) {
@@ -122,7 +124,7 @@ public class WorkshopsFragment extends Fragment {
                     Workshop workshop=eventIterator.next();
                     eventList.add(workshop);
                 }
-                workshopListAdapter.notifyDataSetChanged();
+                workshopAdapter.notifyDataSetChanged();
             }
         });
 
