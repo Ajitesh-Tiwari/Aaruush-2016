@@ -59,9 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
+        String about=getString(R.string.desc);
         String appUrl = "https://play.google.com/store/apps/details?id=com.aaruush16.webarch.aaruush16";
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Aaruush 16");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, appUrl);
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, about+"\n"+appUrl);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             resideMenu.addMenuItem(item,  ResideMenu.DIRECTION_LEFT); // or  ResideMenu.DIRECTION_RIGHT
         }
         // create menu items;
-        String titlesRight[] = { "Patrons","Team", "Invite","Logout", "About Us",};
+        String titlesRight[] = { "Patrons","Team", "Invite","Logout", "Credits",};
         int iconRight[] = {R.drawable.patron,R.drawable.team,R.drawable.invite,R.drawable.logout,R.drawable.about_us};
 
         for (int i = 0; i < titlesRight.length; i++){

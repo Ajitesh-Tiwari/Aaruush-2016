@@ -36,8 +36,6 @@ public class DataFetcher {
 
     public void fetchJSON(final Context context){
 
-
-
         final JsonObjectRequest jsonObjectRequestDomains=new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -95,7 +93,7 @@ public class DataFetcher {
                     saveDataEvent(eventList,context);
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(context, "exception: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(context, "exception: "+e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -145,7 +143,7 @@ public class DataFetcher {
                             saveDataWorkshop(workshopList,context);
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(context, "exception: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "exception: "+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -162,11 +160,11 @@ public class DataFetcher {
         connectionDetector=new ConnectionDetector(context);
         Boolean isConnected=connectionDetector.isConnectingToInternet();
         if (isConnected){
-            Toast.makeText(context, "Updating Database", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Updating Database...", Toast.LENGTH_SHORT).show();
             AppController.getInstance().addToRequestQueue(jsonObjectRequest);
             AppController.getInstance().addToRequestQueue(workshopRequest);
         }else{
-            Toast.makeText(context, "No Internet Connectivity\nPlease connect to internet !!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Please connect to internet...!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -189,7 +187,7 @@ public class DataFetcher {
                     Log.w("Realm",event.getName());
                     //Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(context, "Events Updated!!!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Events Updated!!!", Toast.LENGTH_SHORT).show();
             }
         }, null);
         realm.close();
@@ -214,7 +212,7 @@ public class DataFetcher {
                     Log.w("Realm",workshop.getName());
                     //Toast.makeText(context, "Realm: "+event.getName(), Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(context, "Workshops Updated!!!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Workshops Updated!!!", Toast.LENGTH_SHORT).show();
             }
         }, null);
         realm.close();

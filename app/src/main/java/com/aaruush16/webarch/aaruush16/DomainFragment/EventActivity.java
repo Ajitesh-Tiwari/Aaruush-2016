@@ -125,7 +125,7 @@ public class EventActivity extends AppCompatActivity {
             if(event.getRules().compareTo("Nil")!=0){
                 txt_rules.setText(trim(Html.fromHtml(event.getRules(),Html.FROM_HTML_MODE_LEGACY)));
             }else{
-                txt_description.setText("No Rules is available.");
+                txt_rules.setText("No Rules is available.");
             }
             txt_round.setText(trim(Html.fromHtml(event.getRounds(),Html.FROM_HTML_MODE_LEGACY)));
             if(event.getContact().compareTo("Nil")!=0){
@@ -144,7 +144,7 @@ public class EventActivity extends AppCompatActivity {
             if(event.getRules().compareTo("Nil")!=0){
                 txt_rules.setText(trim(Html.fromHtml(event.getRules())));
             }else{
-                txt_description.setText("No Rules is available.");
+                txt_rules.setText("No Rules is available.");
             }
             if(event.getContact().compareTo("Nil")!=0){
                 txt_contact.setText(trim(Html.fromHtml(event.getContact())));

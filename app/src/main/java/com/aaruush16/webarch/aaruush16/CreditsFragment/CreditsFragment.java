@@ -36,18 +36,12 @@ public class CreditsFragment extends Fragment{
         // Required empty public constructor
     }
 
-    private int getNavBarWidth() {
-        Resources r = getResources();
-        int id = r.getIdentifier("navigation_bar_width", "dimen", "android");
-        return r.getDimensionPixelSize(id);
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_credits, container, false);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("About Us");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Credits");
 //        int width = getNavBarWidth();
         LinearLayout L = (LinearLayout)view.findViewById(R.id.layout);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(

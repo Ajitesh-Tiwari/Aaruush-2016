@@ -30,6 +30,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -85,6 +86,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         buttonComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                buttonComment.setClickable(false);
                 firebaseUser.getToken(true)
                         .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
                             public void onComplete(@NonNull Task task) {
@@ -96,7 +98,13 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                                     // Handle error -> task.getException();
                                 }
                             }
-                        });
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        buttonComment.setClickable(true);
+                        showSnackbar("Something Went Wrong");
+                    }
+                });
             }
         });
 
@@ -172,13 +180,14 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("TEST",response);
                         editTextComment.setText("");
+                        buttonComment.setClickable(true);
                         fetchData();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                buttonComment.setClickable(true);
                 Snackbar snackbar = Snackbar
                         .make(getView(), "Something Went Wrong", Snackbar.LENGTH_INDEFINITE)
                         .setAction("RETRY", new View.OnClickListener() {
