@@ -236,7 +236,7 @@
         jar="/home/ajitesh/Documents/Github/Aaruush-2016/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="5c6c46bec0f15a2f2a3b6a87681500ba4e971641">
+        sha1="c27f90b4d1848f59ad22a1dae5839295f38cf41d">
         <dex dex="/home/ajitesh/Documents/Github/Aaruush-2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_f038e0d93d5cfec74e8fd024af077cbbd94112db/classes.dex" />
     </item>
     <item
@@ -250,7 +250,7 @@
         jar="/home/ajitesh/Documents/Github/Aaruush-2016/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="eee10db2dde8909197b1812a79cf2d14ea2ab3df">
+        sha1="8a1c75d9dda83bffb0ad12aa4f7a96c9dfb1725c">
         <dex dex="/home/ajitesh/Documents/Github/Aaruush-2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_89592b9404f73dce2a4e6b5aafaca3bad10d44c1/classes.dex" />
     </item>
     <item

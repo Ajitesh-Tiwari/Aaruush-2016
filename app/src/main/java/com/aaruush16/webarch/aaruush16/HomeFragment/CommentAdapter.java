@@ -42,7 +42,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.MyViewHo
         holder.email.setText(comment.getEmail());
         holder.comment.setText(comment.getComment());
         if(comment.getPhoto().length()>0)
-            Glide.with(context).load(comment.getPhoto()).into(holder.photo);
+            Glide.with(context).load(comment.getPhoto()).placeholder(R.drawable.placeholder).into(holder.photo);
         else
             holder.photo.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.placeholder));
     }
