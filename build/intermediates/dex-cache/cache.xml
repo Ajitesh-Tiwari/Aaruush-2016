@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="/home/ajitesh/Documents/Github/Aaruush-2016/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="24.0.1"
-        sha1="b8827e495805045734d2478abe3ffa56b6e1881e">
-        <dex dex="/home/ajitesh/Documents/Github/Aaruush-2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_89592b9404f73dce2a4e6b5aafaca3bad10d44c1/classes.dex" />
-    </item>
-
-</items>

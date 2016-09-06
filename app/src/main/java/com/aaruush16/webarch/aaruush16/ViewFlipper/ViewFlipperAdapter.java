@@ -8,6 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.aaruush16.webarch.aaruush16.R;
+import com.aaruush16.webarch.aaruush16.VolleySingleton.AppController;
+import com.android.volley.toolbox.ImageLoader;
+import com.bumptech.glide.Glide;
 import com.yalantis.flipviewpager.adapter.BaseFlipAdapter;
 import com.yalantis.flipviewpager.utils.FlipSettings;
 
@@ -56,9 +59,20 @@ public class ViewFlipperAdapter extends BaseFlipAdapter {
         switch (position) {
             // Merged page with 2 friends
             case 1:
-                holder.leftAvatar.setImageResource(((ViewFlipperItem) item1).getAvatar());
-                if (item2 != null)
-                    holder.rightAvatar.setImageResource(((ViewFlipperItem) item2).getAvatar());
+                if(((ViewFlipperItem) item1).getAvatar()==0){
+                    ImageLoader imageLoader= AppController.getInstance().getImageLoader();
+                    //imageLoader.get("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item1).img_id,ImageLoader.getImageListener(holder.leftAvatar,R.drawable.com_facebook_profile_picture_blank_portrait,R.mipmap.ic_launcher));
+                    Glide.with(context).load("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item1).img_id).into(holder.leftAvatar);
+                    if(item2!=null){
+                        //imageLoader.get("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item2).img_id,ImageLoader.getImageListener(holder.rightAvatar,R.drawable.com_facebook_profile_picture_blank_portrait,R.mipmap.ic_launcher));
+                        Glide.with(context).load("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item2).img_id).into(holder.rightAvatar);
+                    }
+                }else {
+                    holder.leftAvatar.setImageResource(((ViewFlipperItem) item1).getAvatar());
+                    if (item2 != null) {
+                        holder.rightAvatar.setImageResource(((ViewFlipperItem) item2).getAvatar());
+                    }
+                }
                 break;
             default:
                 fillHolder(holder, position == 0 ? (ViewFlipperItem) item1 : (ViewFlipperItem) item2);

@@ -14,8 +14,9 @@
         android:layout_weight="1"
         android:contentDescription="left image"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:layout_width="fill_parent" />
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:src="@drawable/com_facebook_profile_picture_blank_square" />
 </LinearLayout>
 
 <LinearLayout
@@ -24,11 +25,12 @@
     android:layout_weight="1">
     <ImageView
         android:id="@+id/second"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_weight="1"
         android:contentDescription="right image"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/com_facebook_profile_picture_blank_square" />
 </LinearLayout>
 
 </LinearLayout>

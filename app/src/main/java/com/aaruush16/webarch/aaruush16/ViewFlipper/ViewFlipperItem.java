@@ -13,6 +13,7 @@ public class ViewFlipperItem {
     private String nickname;
     private int background;
     private List<String> interests = new ArrayList<>();
+    public String img_id;
 
     public ViewFlipperItem(int avatar, String nickname, int background, String... interest) {
         this.avatar = avatar;

@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 changeFragment(new PatronsFragment(),"IGNORE");
                 break;
             case 6:
-                changeFragment(new TeamsFragment());
+                changeFragment(new TeamsFragment(),"IGNORE");
                 break;
             case 7:
                 share();
