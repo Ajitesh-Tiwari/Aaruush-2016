@@ -14,13 +14,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-import com.aaruush16.webarch.aaruush16.MainActivity;
 import com.aaruush16.webarch.aaruush16.R;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
 
 import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Rishi on 14-08-2016.

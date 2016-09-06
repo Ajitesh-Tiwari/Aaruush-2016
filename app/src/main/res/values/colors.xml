@@ -6,10 +6,7 @@
     <item name="white" type="color">#FFFFFFFF</item>
     <color name="colorHighlight">#B6B6B6</color>
     <color name="Indigo">#4b0082</color>
-    <color name="DarkTurqoise">#009688</color>
     <color name="DarkBlue">#1A237E</color>
-    <color name="Red">#FF0000</color>
-    <color name="bgBackSideColor">#f4f0ff</color>
     <color name="black">#000000</color>
 
 
@@ -18,5 +15,4 @@
     <color name="green">#10b4a5</color>
     <color name="purple">#7c57e4</color>
     <color name="pink">#ff4284</color>
-    <color name="orange">#ff8c6a</color>
 </resources>

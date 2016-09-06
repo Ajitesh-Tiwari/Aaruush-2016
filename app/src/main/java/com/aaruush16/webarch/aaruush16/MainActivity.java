@@ -4,17 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.aaruush16.webarch.aaruush16.CreditsFragment.CreditsFragment;
 import com.aaruush16.webarch.aaruush16.DataSync.DataFetcher;
@@ -24,7 +20,6 @@ import com.aaruush16.webarch.aaruush16.Firebase.LoginActivity;
 import com.aaruush16.webarch.aaruush16.HighlightsFragment.HighlightsFragment;
 import com.aaruush16.webarch.aaruush16.HomeFragment.HomeFragment;
 import com.aaruush16.webarch.aaruush16.PatronsFragment.PatronsFragment;
-import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
 import com.aaruush16.webarch.aaruush16.ResideMenu.ResideMenu;
 import com.aaruush16.webarch.aaruush16.ResideMenu.ResideMenuItem;
 import com.aaruush16.webarch.aaruush16.TeamsFragment.TeamsFragment;
@@ -36,13 +31,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.joanzapata.iconify.Iconify;
 import com.joanzapata.iconify.fonts.SimpleLineIconsModule;
-
-import java.util.Iterator;
-
-import io.realm.Realm;
-import io.realm.RealmChangeListener;
-import io.realm.RealmQuery;
-import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

@@ -1,32 +1,23 @@
 package com.aaruush16.webarch.aaruush16.DomainFragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.aaruush16.webarch.aaruush16.R;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
-import com.aaruush16.webarch.aaruush16.VolleySingleton.AppController;
-import com.android.volley.toolbox.ImageLoader;
-
-import java.util.Iterator;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
-import io.realm.RealmResults;
 
 public class EventActivity extends AppCompatActivity {
 

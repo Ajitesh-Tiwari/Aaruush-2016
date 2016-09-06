@@ -16,7 +16,6 @@
 
 
     <FrameLayout
-        android:id="@+id/cell_content_view"
         android:layout_width="match_parent"
         android:minHeight="250dp"
         android:layout_height="wrap_content"
@@ -93,7 +92,6 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/cell_title_view"
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@color/DarkBlue">

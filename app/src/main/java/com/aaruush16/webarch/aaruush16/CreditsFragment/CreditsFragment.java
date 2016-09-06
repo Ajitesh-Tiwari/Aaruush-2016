@@ -3,7 +3,6 @@ package com.aaruush16.webarch.aaruush16.CreditsFragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,8 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.aaruush16.webarch.aaruush16.R;
-
-import org.w3c.dom.Text;
 
 
 /**

@@ -1,7 +1,5 @@
 package com.aaruush16.webarch.aaruush16.RealmClasses;
 
-import java.io.Serializable;
-
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 

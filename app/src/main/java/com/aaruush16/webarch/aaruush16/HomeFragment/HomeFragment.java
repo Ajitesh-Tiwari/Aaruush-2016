@@ -1,8 +1,6 @@
 package com.aaruush16.webarch.aaruush16.HomeFragment;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -12,15 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.aaruush16.webarch.aaruush16.ConnectionDetector.ConnectionDetector;
 import com.aaruush16.webarch.aaruush16.R;
 import com.aaruush16.webarch.aaruush16.VolleySingleton.AppController;
 import com.android.volley.Request;
