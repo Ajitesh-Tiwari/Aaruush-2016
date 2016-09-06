@@ -19,16 +19,24 @@
             android:id="@+id/interest_1"
             android:visibility="invisible"/>
 
-        <TextView
-            style="@style/TextView.Interest"
-            android:id="@+id/interest_2"
-            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/interestsPrimary"
+        android:id="@+id/interestsSecondary"
+        style="@style/LinearLayout.Interests">
+
+    <TextView
+        style="@style/TextView.Interest"
+        android:id="@+id/interest_2"
+        android:visibility="invisible"/>
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_below="@+id/interestsPrimary"
+        android:layout_below="@+id/interestsSecondary"
         android:layout_marginTop="5dp"
         style="@style/LinearLayout.Interests">
         <TextView

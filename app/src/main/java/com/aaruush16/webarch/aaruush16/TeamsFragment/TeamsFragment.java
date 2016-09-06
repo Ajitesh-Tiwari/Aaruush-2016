@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.aaruush16.webarch.aaruush16.R;
-import com.aaruush16.webarch.aaruush16.RealmClasses.Event;
 import com.aaruush16.webarch.aaruush16.RealmClasses.PersonTeam;
 import com.aaruush16.webarch.aaruush16.ViewFlipper.ViewFlipperAdapter;
 import com.aaruush16.webarch.aaruush16.ViewFlipper.ViewFlipperItem;

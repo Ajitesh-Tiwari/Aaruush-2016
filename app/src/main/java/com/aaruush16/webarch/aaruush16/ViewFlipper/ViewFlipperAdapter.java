@@ -62,10 +62,10 @@ public class ViewFlipperAdapter extends BaseFlipAdapter {
                 if(((ViewFlipperItem) item1).getAvatar()==0){
                     ImageLoader imageLoader= AppController.getInstance().getImageLoader();
                     //imageLoader.get("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item1).img_id,ImageLoader.getImageListener(holder.leftAvatar,R.drawable.com_facebook_profile_picture_blank_portrait,R.mipmap.ic_launcher));
-                    Glide.with(context).load("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item1).img_id).into(holder.leftAvatar);
+                    Glide.with(context).load("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item1).img_id).placeholder(R.drawable.placeholder).into(holder.leftAvatar);
                     if(item2!=null){
                         //imageLoader.get("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item2).img_id,ImageLoader.getImageListener(holder.rightAvatar,R.drawable.com_facebook_profile_picture_blank_portrait,R.mipmap.ic_launcher));
-                        Glide.with(context).load("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item2).img_id).into(holder.rightAvatar);
+                        Glide.with(context).load("http://aaruush.net/testing123/images/team/"+((ViewFlipperItem) item2).img_id).placeholder(R.drawable.placeholder).into(holder.rightAvatar);
                     }
                 }else {
                     holder.leftAvatar.setImageResource(((ViewFlipperItem) item1).getAvatar());
@@ -106,7 +106,6 @@ public class ViewFlipperAdapter extends BaseFlipAdapter {
             ImageView leftAvatar;
             ImageView rightAvatar;
             View infoPage;
-
             List<TextView> interests = new ArrayList<>();
             TextView nickName;
     }
