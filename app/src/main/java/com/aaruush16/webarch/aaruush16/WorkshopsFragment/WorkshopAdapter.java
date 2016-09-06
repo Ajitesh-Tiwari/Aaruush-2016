@@ -1,91 +1,115 @@
 package com.aaruush16.webarch.aaruush16.WorkshopsFragment;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.ramotion.foldingcell.FoldingCell;
 import com.aaruush16.webarch.aaruush16.R;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Workshop;
 import com.ramotion.foldingcell.FoldingCell;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by Ravi on 03-09-2016.
  */
-class WorkshopAdapter extends BaseAdapter {
-
-    private Context context;
-    private ArrayList<Workshop> workshops;
-
-    TextView title;
-    TextView desc;
-    TextView cost;
-    TextView date;
-    TextView company;
-    TextView team;
-    FoldingCell foldingCell;
-
-    public WorkshopAdapter(Context context, ArrayList<Workshop> workshops) {
-        this.context = context;
-        this.workshops = workshops;
-    }
+class WorkshopAdapter extends ArrayAdapter<Workshop> {
 
 
-    @Override
-    public Object getItem(int position) {
-        return workshops.get(position);
-    }
-//
-    @Override
-    public int getCount() {
-        return workshops.size();
-    }
+    private HashSet<Integer> unfoldedIndexes = new HashSet<>();
 
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
+    public WorkshopAdapter(Context context, List<Workshop> objects) {
+        super(context, 0, objects);
     }
 
     @Override
-    public View getView(int position, View itemView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // get item for selected view
+        Workshop item = getItem(position);
+        // if cell is exists - reuse it, if not - create the new one from resource
+        FoldingCell cell = (FoldingCell) convertView;
+        ViewHolder viewHolder;
+        if (cell == null) {
+            viewHolder = new ViewHolder();
+            LayoutInflater vi = LayoutInflater.from(getContext());
+            cell = (FoldingCell) vi.inflate(R.layout.workshop_list_item, parent, false);
+            // binding view parts to view holder
 
-
-
-        if (itemView == null) {
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            itemView = (View) inflater.inflate(
-                    R.layout.workshop_list_item, null);
+            viewHolder.title = (TextView) cell.findViewById(R.id.title);
+            viewHolder.desc = (TextView) cell.findViewById(R.id.desc);
+            viewHolder.cost = (TextView) cell.findViewById(R.id.cost);
+            viewHolder.date = (TextView) cell.findViewById(R.id.date_time);
+            viewHolder.company = (TextView) cell.findViewById(R.id.company);
+            viewHolder.team = (TextView) cell.findViewById(R.id.team);
+            cell.setTag(viewHolder);
+        } else {
+            // for existing cell set valid valid state(without animation)
+            if (unfoldedIndexes.contains(position)) {
+                cell.unfold(true);
+            } else {
+                cell.fold(true);
+            }
+            viewHolder = (ViewHolder) cell.getTag();
         }
 
+        // bind data from selected element to view through view holder
+        viewHolder.title.setText(trim(Html.fromHtml(item.getName())));
+        viewHolder.desc.setText(trim(Html.fromHtml(item.getDesc())));
+        viewHolder.cost.setText(trim(Html.fromHtml(item.getCost())));
+        viewHolder.date.setText(trim(Html.fromHtml(item.getDate())));
+        viewHolder.company.setText(trim(Html.fromHtml(item.getCompany_name())));
+        viewHolder.team.setText(trim(Html.fromHtml(item.getTeam())));
 
-        title= (TextView) itemView.findViewById(R.id.title);
-        desc= (TextView) itemView.findViewById(R.id.desc);
-        cost= (TextView) itemView.findViewById(R.id.cost);
-        date= (TextView) itemView.findViewById(R.id.date_time);
-        company= (TextView) itemView.findViewById(R.id.company);
-        team= (TextView) itemView.findViewById(R.id.team);
-        foldingCell = (FoldingCell) itemView.findViewById(R.id.folding_cell);
+        return cell;
+    }
 
-        title.setText(workshops.get(position).getName());
-        desc.setText(workshops.get(position).getDesc());
-        cost.setText(workshops.get(position).getCost());
-        date.setText("Date: "+workshops.get(position).getDate()+"\nTime: "+workshops.get(position).getTime());
-        company.setText("Company: "+workshops.get(position).getCompany_name());
-        team.setText(workshops.get(position).getTeam());
+    // simple methods for register cell state changes
+    public void registerToggle(int position) {
+        if (unfoldedIndexes.contains(position))
+            registerFold(position);
+        else
+            registerUnfold(position);
+    }
 
-        foldingCell.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                foldingCell.toggle(false);
-            }
-        });
+    public void registerFold(int position) {
+        unfoldedIndexes.remove(position);
+    }
 
-        return itemView;
+    public void registerUnfold(int position) {
+        unfoldedIndexes.add(position);
+    }
+
+
+    // View lookup cache
+    private static class ViewHolder {
+        TextView title;
+        TextView desc;
+        TextView cost;
+        TextView date;
+        TextView company;
+        TextView team;
+    }
+
+    public static CharSequence trim(CharSequence s) {
+        int start=0;
+        int end=s.length();
+        while (start < end && Character.isWhitespace(s.charAt(start))) {
+            start++;
+        }
+
+        while (end > start && Character.isWhitespace(s.charAt(end - 1))) {
+            end--;
+        }
+
+        return s.subSequence(start, end);
     }
 }

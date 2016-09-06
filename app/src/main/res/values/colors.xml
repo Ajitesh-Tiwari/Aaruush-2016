@@ -8,7 +8,7 @@
     <color name="Indigo">#4b0082</color>
     <color name="DarkBlue">#1A237E</color>
     <color name="black">#000000</color>
-
+    <color name="bgBackSideColor">#f4f0ff</color>
 
     <color name="saffron">#F4B63E</color>
     <color name="sienna">#EB6460</color>
