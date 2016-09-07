@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aaruush16.webarch.aaruush16.DomainFragment.EventListAdapter;
 import com.aaruush16.webarch.aaruush16.R;
@@ -70,6 +71,8 @@ public class FavouritesFragment extends Fragment {
             Event event=eventIterator.next();
             eventList.add(event);
         }
+        if(eventList.size()==0)
+            Toast.makeText(context,"No Favourites Found",Toast.LENGTH_LONG).show();
         eventListAdapter=new EventListAdapter(context,eventList);
         list_event.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         list_event.setAdapter(eventListAdapter);

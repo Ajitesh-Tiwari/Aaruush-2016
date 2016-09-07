@@ -8,8 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.content.Context;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.ramotion.foldingcell.FoldingCell;
 import com.aaruush16.webarch.aaruush16.R;
 import com.aaruush16.webarch.aaruush16.RealmClasses.Workshop;
@@ -26,9 +28,11 @@ class WorkshopAdapter extends ArrayAdapter<Workshop> {
 
 
     private HashSet<Integer> unfoldedIndexes = new HashSet<>();
+    Context context;
 
     public WorkshopAdapter(Context context, List<Workshop> objects) {
         super(context, 0, objects);
+        this.context=context;
     }
 
     @Override
@@ -50,6 +54,10 @@ class WorkshopAdapter extends ArrayAdapter<Workshop> {
             viewHolder.date = (TextView) cell.findViewById(R.id.date_time);
             viewHolder.company = (TextView) cell.findViewById(R.id.company);
             viewHolder.team = (TextView) cell.findViewById(R.id.team);
+            viewHolder.frontDate=(TextView)cell.findViewById(R.id.frontDate);
+            viewHolder.frontCost=(TextView)cell.findViewById(R.id.frontCost);
+            viewHolder.image=(ImageView)cell.findViewById(R.id.image);
+            viewHolder.backImage=(ImageView)cell.findViewById(R.id.backImage);
             cell.setTag(viewHolder);
         } else {
             // for existing cell set valid valid state(without animation)
@@ -65,9 +73,13 @@ class WorkshopAdapter extends ArrayAdapter<Workshop> {
         viewHolder.title.setText(trim(Html.fromHtml(item.getName())));
         viewHolder.desc.setText(trim(Html.fromHtml(item.getDesc())));
         viewHolder.cost.setText(trim(Html.fromHtml(item.getCost())));
+        viewHolder.frontCost.setText(trim(Html.fromHtml(item.getCost())));
         viewHolder.date.setText(trim(Html.fromHtml(item.getDate())));
+        viewHolder.frontDate.setText(trim(Html.fromHtml(item.getDate())));
         viewHolder.company.setText(trim(Html.fromHtml(item.getCompany_name())));
         viewHolder.team.setText(trim(Html.fromHtml(item.getTeam())));
+        Glide.with(context).load("http://aaruush.net/testing123/images/workshop/"+item.getImage()).into(viewHolder.image);
+        Glide.with(context).load("http://aaruush.net/testing123/images/workshop/"+item.getImage()).into(viewHolder.backImage);
 
         return cell;
     }
@@ -92,11 +104,15 @@ class WorkshopAdapter extends ArrayAdapter<Workshop> {
     // View lookup cache
     private static class ViewHolder {
         TextView title;
+        TextView frontDate;
+        TextView frontCost;
         TextView desc;
         TextView cost;
         TextView date;
         TextView company;
         TextView team;
+        ImageView image;
+        ImageView backImage;
     }
 
     public static CharSequence trim(CharSequence s) {

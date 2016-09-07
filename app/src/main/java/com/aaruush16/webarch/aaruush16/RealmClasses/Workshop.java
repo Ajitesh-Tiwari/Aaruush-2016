@@ -16,7 +16,16 @@ public class Workshop extends RealmObject {
     String cost;
     String time;
     String company_name;
+    String image;
 
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public void setId(int id) {
         this.id = id;

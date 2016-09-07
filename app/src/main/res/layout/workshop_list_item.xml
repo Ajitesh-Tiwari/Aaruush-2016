@@ -4,102 +4,172 @@
     android:id="@+id/folding_cell"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    folding-cell:backSideColor="@color/bgBackSideColor">
+    folding-cell:backSideColor="#f9e161">
 
-    <LinearLayout
+    <FrameLayout
+        android:background="@color/white"
+        android:layout_margin="4dp"
         android:id="@+id/cell_content_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/DarkBlue"
-        android:minHeight="250dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:paddingBottom="15dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingTop="7dp"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description: "
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/white" />
+            android:minHeight="500dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/white" />
+            <ImageView
+                android:background="#bbb"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/backImage"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cost: "
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
 
-        <TextView
-            android:id="@+id/cost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/white" />
+                <TextView
+                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contact: "
-            android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="@color/white" />
+                <TextView
+                    android:id="@+id/desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/white" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
 
-        <TextView
-            android:id="@+id/team"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/white" />
+                <TextView
+                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
 
-        <TextView
-            android:id="@+id/date_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@color/white" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/black" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp">
 
-    <LinearLayout
+                <TextView
+                    android:layout_marginBottom="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:id="@+id/cost"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextView.Interest" />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:id="@+id/date_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextView.Interest" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="25dp"/>
+        </LinearLayout>
+    </FrameLayout>
+    ​
+    <FrameLayout
+        android:layout_margin="4dp"
         android:id="@+id/cell_title_view"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:background="@color/DarkBlue"
-        android:padding="5dp"
-        >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/about_us" />
-
-        <TextView
-            android:id="@+id/title"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="This is the title of the event"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            android:layout_height="250dp">
 
+            <ImageView
+                android:background="#bbb"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:id="@+id/image" />
+
+            <LinearLayout
+                android:padding="16dp"
+                android:background="@color/colorAccent"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextView.Interest"/>
+                <TextView
+                    android:id="@+id/frontDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextView.Interest"/>
+                <TextView
+                    android:id="@+id/frontCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextView.Interest"/>
+                <TextView
+                    android:text="Click To Know More"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextView.Interest"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </FrameLayout>
 
 </com.ramotion.foldingcell.FoldingCell>

@@ -139,7 +139,8 @@ public class DataFetcher {
                                 workshop.setDate(workshop_json.getString("date"));
                                 workshop.setCost(workshop_json.getString("cost"));
                                 workshop.setTime(workshop_json.getString("time"));
-                                workshop.setCompany_name(workshop_json.getString("company_name"));
+                                workshop.setCompany_name(workshop_json.getString("coords"));
+                                workshop.setImage(workshop_json.getString("imgSource"));
                                 workshopList.add(workshop);
                             }
                             //Toast.makeText(context, "2", Toast.LENGTH_SHORT).show();

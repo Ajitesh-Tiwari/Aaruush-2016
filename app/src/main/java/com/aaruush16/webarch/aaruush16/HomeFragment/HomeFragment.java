@@ -154,6 +154,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             @Override
             public void onErrorResponse(VolleyError error) {
                 swipeRefreshLayout.setRefreshing(false);
+                if(getView()!=null){
                 Snackbar snackbar = Snackbar
                         .make(getView(), "Something Went Wrong", Snackbar.LENGTH_INDEFINITE)
                         .setAction("RETRY", new View.OnClickListener() {
@@ -163,7 +164,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                             }
                         });
 
-                snackbar.show();
+                snackbar.show();}
             }
         });
         AppController.getInstance().addToRequestQueue(jsonArrayRequest);
@@ -183,6 +184,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             @Override
             public void onErrorResponse(VolleyError error) {
                 buttonComment.setClickable(true);
+                if(getView()!=null){
                 Snackbar snackbar = Snackbar
                         .make(getView(), "Something Went Wrong", Snackbar.LENGTH_INDEFINITE)
                         .setAction("RETRY", new View.OnClickListener() {
@@ -192,7 +194,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                             }
                         });
 
-                snackbar.show();
+                snackbar.show();}
             }
         }){
             @Override
@@ -214,9 +216,10 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     private void showSnackbar(String s) {
+        if(getView()!=null){
         Snackbar snackbar = Snackbar
                 .make(getView(), s, Snackbar.LENGTH_SHORT);
-        snackbar.show();
+        snackbar.show();}
     }
 
     @Override
