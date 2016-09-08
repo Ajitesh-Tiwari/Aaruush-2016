@@ -128,7 +128,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
     private void fetchData() {
         swipeRefreshLayout.setRefreshing(true);
-        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://aaruush.net/testing123/AaruushFeed/get_feed.php",
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest("http://aaruush.net/AaruushFeed/get_feed.php",
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -172,7 +172,7 @@ public class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private void makeComment(){
         final String comment=editTextComment.getText().toString();
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://aaruush.net/testing123/AaruushFeed/add_feed.php",
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, "http://aaruush.net/AaruushFeed/add_feed.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

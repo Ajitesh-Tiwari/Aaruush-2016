@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edit"
                 android:id="@+id/etComment"
-                android:hint="Say Something....(100 Chars Only)"
+                android:hint="Express Yourself....(100 Char Limit)"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
                 android:padding="10dp"

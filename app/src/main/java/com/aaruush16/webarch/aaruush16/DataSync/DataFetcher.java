@@ -32,10 +32,10 @@ import io.realm.RealmResults;
 public class DataFetcher {
     ConnectionDetector connectionDetector;
     JSONObject eventData;
-    String URL = "http://aaruush.net/testing123/eventData/eventNames.json";
-    String URLEvents = "http://aaruush.net/testing123/eventData/eventData.json";
-    String URLWorkshops = "http://aaruush.net/testing123/eventData/workshop.json";
-    String URLTeam = "http://aaruush.net/testing123/eventData/teamData.json";
+    String URL = "http://aaruush.net/eventData/eventNames.json";
+    String URLEvents = "http://aaruush.net/eventData/eventData.json";
+    String URLWorkshops = "http://aaruush.net/eventData/workshop.json";
+    String URLTeam = "http://aaruush.net/eventData/teamData.json";
 
     public void fetchJSON(final Context context) {
 
@@ -73,6 +73,8 @@ public class DataFetcher {
                             //event.setImageURL(row.getJSONObject("gsx$imageurl").getString("$t"));
                             if (jsonObject.has("rounds"))
                                 event.setRounds(jsonObject.getString("rounds"));
+                            else
+                                event.setRounds("Nil");
                             Realm realm = Realm.getDefaultInstance();
                             RealmQuery<Event> query = realm.where(Event.class).equalTo("id", event.getId());
                             Event event_q = new Event();

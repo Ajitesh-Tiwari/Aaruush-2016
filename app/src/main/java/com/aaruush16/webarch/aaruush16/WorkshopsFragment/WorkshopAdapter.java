@@ -78,8 +78,8 @@ class WorkshopAdapter extends ArrayAdapter<Workshop> {
         viewHolder.frontDate.setText(trim(Html.fromHtml(item.getDate())));
         viewHolder.company.setText(trim(Html.fromHtml(item.getCompany_name())));
         viewHolder.team.setText(trim(Html.fromHtml(item.getTeam())));
-        Glide.with(context).load("http://aaruush.net/testing123/images/workshop/"+item.getImage()).into(viewHolder.image);
-        Glide.with(context).load("http://aaruush.net/testing123/images/workshop/"+item.getImage()).into(viewHolder.backImage);
+        Glide.with(context).load("http://aaruush.net/images/workshop/"+item.getImage()).into(viewHolder.image);
+        Glide.with(context).load("http://aaruush.net/images/workshop/"+item.getImage()).into(viewHolder.backImage);
 
         return cell;
     }

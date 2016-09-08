@@ -97,6 +97,9 @@ public class EventActivity extends AppCompatActivity {
             case "yuddhame":
                 drawable=getResources().getDrawable(R.drawable.yudhamme);
                 break;
+            case "special_event":
+                drawable=getResources().getDrawable(R.drawable.digital_design);
+                break;
         }
         event_img.setImageDrawable(drawable);
         txt_description= (TextView) findViewById(R.id.txt_description);
@@ -118,7 +121,10 @@ public class EventActivity extends AppCompatActivity {
             }else{
                 txt_rules.setText("No Rules is available.");
             }
-            txt_round.setText(trim(Html.fromHtml(event.getRounds(),Html.FROM_HTML_MODE_LEGACY)));
+            if(event.getRounds().compareTo("Nil")!=0)
+                txt_round.setText(trim(Html.fromHtml(event.getRounds(),Html.FROM_HTML_MODE_LEGACY)));
+            else
+                txt_round.setText("No Rounds available.");
             if(event.getContact().compareTo("Nil")!=0){
                 txt_contact.setText(trim(Html.fromHtml(event.getContact(),Html.FROM_HTML_MODE_LEGACY)));
             }else{
@@ -142,7 +148,10 @@ public class EventActivity extends AppCompatActivity {
             }else {
                 txt_contact.setText("No Contacts available.");
             }
-            txt_round.setText(trim(Html.fromHtml(event.getRounds())));
+            if(event.getRounds().compareTo("Nil")!=0)
+                txt_round.setText(trim(Html.fromHtml(event.getRounds())));
+            else
+                txt_round.setText("No Rounds available.");
         }
 
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

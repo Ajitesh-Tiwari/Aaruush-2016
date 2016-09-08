@@ -172,8 +172,10 @@ public class DomainFragment extends Fragment{
                     case 13:color=R.color.blue;
                         drawable=getResources().getDrawable(R.drawable.yudhamme);
                         break;
-
-
+                    case 14:
+                        color=R.color.cyan;
+                        drawable=getResources().getDrawable(R.drawable.digital_design);
+                        break;
                 }
                 return HeaderDesign.fromColorAndDrawable(getResources().getColor(color),drawable);
             }
