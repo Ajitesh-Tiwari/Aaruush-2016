@@ -8,8 +8,8 @@ android {
         applicationId "com.aaruush16.webarch.aaruush16"
         minSdkVersion 17
         targetSdkVersion 24
-        versionCode 9
-        versionName "1.8"
+        versionCode 11
+        versionName "2.0"
         multiDexEnabled true
     }
     buildTypes {

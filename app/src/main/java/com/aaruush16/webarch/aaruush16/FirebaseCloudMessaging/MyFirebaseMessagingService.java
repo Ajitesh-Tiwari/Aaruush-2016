@@ -4,9 +4,11 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.aaruush16.webarch.aaruush16.MainActivity;
@@ -47,6 +49,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)
+                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),
+                        R.mipmap.ic_launcher))
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(messageBody))
                 .setContentIntent(pendingIntent);
 
         NotificationManager notificationManager =

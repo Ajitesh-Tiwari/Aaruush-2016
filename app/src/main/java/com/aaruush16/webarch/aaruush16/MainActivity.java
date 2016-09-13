@@ -1,16 +1,24 @@
 package com.aaruush16.webarch.aaruush16;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.aaruush16.webarch.aaruush16.CreditsFragment.CreditsFragment;
 import com.aaruush16.webarch.aaruush16.DataSync.DataFetcher;
@@ -39,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ResideMenu resideMenu;
     Toolbar toolbar;
     FrameLayout frameLayout;
+    boolean doubleBackToExitPressedOnce = false;
 
     int id=0;
 
@@ -193,5 +202,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
 }
